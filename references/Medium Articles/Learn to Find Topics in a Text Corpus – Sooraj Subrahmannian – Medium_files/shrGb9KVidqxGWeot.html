@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<!-- saved from url=(0074)https://airtable.com/embed/shrGb9KVidqxGWeot/tbliylWO11uMsYTMQ?blocks=hide -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="referrer" content="no-referrer"><meta name="robots" content="noindex"><meta name="theme-color" content="#ffffff"><meta name="description" content="Explore the &quot;Main&quot; view on Airtable."><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@airtable"><meta property="fb:app_id" content="1457397314575627"><meta property="og:site_name" content="Airtable"><meta property="og:title" content="Main View - Airtable"><meta property="og:type" content="website"><meta property="og:description" content="Explore the &quot;Main&quot; view on Airtable."><meta property="og:image" content="https://static.airtable.com/images/oembed/airtable.png"><meta property="og:url" content="https://airtable.com"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><script>
+            var _rollbarConfig = (function() {
+                
+        var regularExpressionsToFilterRollbarStackTraces = [/adroll\.com/,/intercomcdn\.com/,/intercom\.io/,/cdn\.segment\.com/];
+        var rollbarCheckIgnoreFunctionToFilterUnwantedClientSideExceptions = function rollbarCheckIgnoreFunctionToFilterUnwantedClientSideExceptions(isUncaught, args, payload) {
+    var frames = payload && payload.body && payload.body.trace && payload.body.trace.frames;
+    if (frames) {
+        var badFrames = false;
+        frames.forEach(function (frame) {
+            if (badFrames) {
+                return;
+            }
+            if (frame && frame.filename) {
+                regularExpressionsToFilterRollbarStackTraces.forEach(function (regExp) {
+                    if (badFrames) {
+                        return;
+                    }
+                    if (regExp.test(frame.filename)) {
+                        badFrames = true;
+                    }
+                });
+            }
+        });
+        if (badFrames) {
+            return true;
+        }
+        if (frames.length === 1 && frames[0].filename === '(unknown)') {
+            if (payload.body.trace.exception && payload.body.trace.exception.message === 'Script error.') {
+                return true;
+            }
+        }
+    }
+    return false;
+};
+        var sanitizeUrl = function sanitizeUrl(url) {
+    if (url.match(/shr(\w{14})/)) {
+        var replacedUrl = url.replace(/shr\w{14}/g, function (match) {
+            return match.slice(0, 7) + '**********';
+        });
+        url = replacedUrl;
+    }
+    if (url.match(/auth\/passwordReset/)) {
+        url = url.replace(/(auth\/passwordReset\/)(.*)$/, '$1*');
+    }
+    url = url.replace(/(\?.*)$/, function (queryString) {
+        return sanitizeQueryStringByReplacingQueryValuesWithStar(queryString);
+    });
+    return url;
+};
+        var sanitizeQueryStringByReplacingQueryValuesWithStar = function sanitizeQueryStringByReplacingQueryValuesWithStar(queryString) {
+    var sanitizedQueryString = queryString.replace(/(=)([^&]+)(&)/g, '$1*$3').replace(/(=)([^&]+)$/, '$1*');
+    return sanitizedQueryString;
+};
+        var rollbarTransformFunctionToRemoveSensitiveDataFromReportedClientSideExceptions = function _rollbarTransformFunctionToRemoveSensitiveDataFromReportedClientSideExceptions(payload) {
+    if (payload.data && payload.data.request) {
+        if (payload.data.request.url) {
+            payload.data.request.url = sanitizeUrl(payload.data.request.url);
+        }
+        if (payload.data.request.query_string) {
+            payload.data.request.query_string = sanitizeQueryStringByReplacingQueryValuesWithStar(payload.data.request.query_string);
+        }
+    }
+};
+    
+
+                var rollbarConfig = {"rollbarJsUrl":"https:\u002F\u002Fcdnjs.cloudflare.com\u002Fajax\u002Flibs\u002Frollbar.js\u002F1.9.0\u002Frollbar.nojson.min.js","accessToken":"5a2d5967127341068ca03d066e325b6a","captureUncaught":true,"captureUnhandledRejections":false,"uncaughtErrorLevel":"error","maxItems":1000,"itemsPerMinute":60,"payload":{"environment":"production","person":{"id":null},"client":{"javascript":{"source_map_enabled":true,"code_version":"3a1ecd1c1f91d1daf3043ed99a55a087c35cfe4a","guess_uncaught_frames":true}}}};
+                rollbarConfig.checkIgnore = rollbarCheckIgnoreFunctionToFilterUnwantedClientSideExceptions;
+                rollbarConfig.transform = rollbarTransformFunctionToRemoveSensitiveDataFromReportedClientSideExceptions;
+                return rollbarConfig;
+            })();
+
+            !function(r){function e(t){if(o[t])return o[t].exports;var n=o[t]={exports:{},id:t,loaded:!1};return r[t].call(n.exports,n,n.exports,e),n.loaded=!0,n.exports}var o={};return e.m=r,e.c=o,e.p="",e(0)}([function(r,e,o){"use strict";var t=o(1).Rollbar,n=o(2);_rollbarConfig.rollbarJsUrl=_rollbarConfig.rollbarJsUrl||"https://d37gvrvc0wt4s1.cloudfront.net/js/v1.9/rollbar.min.js";var a=t.init(window,_rollbarConfig),i=n(a,_rollbarConfig);a.loadFull(window,document,!_rollbarConfig.async,_rollbarConfig,i)},function(r,e){"use strict";function o(r){return function(){try{return r.apply(this,arguments)}catch(e){try{console.error("[Rollbar]: Internal error",e)}catch(o){}}}}function t(r,e,o){window._rollbarWrappedError&&(o[4]||(o[4]=window._rollbarWrappedError),o[5]||(o[5]=window._rollbarWrappedError._rollbarContext),window._rollbarWrappedError=null),r.uncaughtError.apply(r,o),e&&e.apply(window,o)}function n(r){var e=function(){var e=Array.prototype.slice.call(arguments,0);t(r,r._rollbarOldOnError,e)};return e.belongsToShim=!0,e}function a(r){this.shimId=++c,this.notifier=null,this.parentShim=r,this._rollbarOldOnError=null}function i(r){var e=a;return o(function(){if(this.notifier)return this.notifier[r].apply(this.notifier,arguments);var o=this,t="scope"===r;t&&(o=new e(this));var n=Array.prototype.slice.call(arguments,0),a={shim:o,method:r,args:n,ts:new Date};return window._rollbarShimQueue.push(a),t?o:void 0})}function l(r,e){if(e.hasOwnProperty&&e.hasOwnProperty("addEventListener")){var o=e.addEventListener;e.addEventListener=function(e,t,n){o.call(this,e,r.wrap(t),n)};var t=e.removeEventListener;e.removeEventListener=function(r,e,o){t.call(this,r,e&&e._wrapped?e._wrapped:e,o)}}}var c=0;a.init=function(r,e){var t=e.globalAlias||"Rollbar";if("object"==typeof r[t])return r[t];r._rollbarShimQueue=[],r._rollbarWrappedError=null,e=e||{};var i=new a;return o(function(){if(i.configure(e),e.captureUncaught){i._rollbarOldOnError=r.onerror,r.onerror=n(i);var o,a,c="EventTarget,Window,Node,ApplicationCache,AudioTrackList,ChannelMergerNode,CryptoOperation,EventSource,FileReader,HTMLUnknownElement,IDBDatabase,IDBRequest,IDBTransaction,KeyOperation,MediaController,MessagePort,ModalWindow,Notification,SVGElementInstance,Screen,TextTrack,TextTrackCue,TextTrackList,WebSocket,WebSocketWorker,Worker,XMLHttpRequest,XMLHttpRequestEventTarget,XMLHttpRequestUpload".split(",");for(o=0;o<c.length;++o)a=c[o],r[a]&&r[a].prototype&&l(i,r[a].prototype)}return e.captureUnhandledRejections&&(i._unhandledRejectionHandler=function(r){var e=r.reason,o=r.promise,t=r.detail;!e&&t&&(e=t.reason,o=t.promise),i.unhandledRejection(e,o)},r.addEventListener("unhandledrejection",i._unhandledRejectionHandler)),r[t]=i,i})()},a.prototype.loadFull=function(r,e,t,n,a){var i=function(){var e;if(void 0===r._rollbarPayloadQueue){var o,t,n,i;for(e=new Error("rollbar.js did not load");o=r._rollbarShimQueue.shift();)for(n=o.args,i=0;i<n.length;++i)if(t=n[i],"function"==typeof t){t(e);break}}"function"==typeof a&&a(e)},l=!1,
+                c=e.createElement("script"),d=e.getElementsByTagName("script")[0],p=d.parentNode;
+                c.crossOrigin="",c.src=n.rollbarJsUrl,c.async=!t,
+                c.onload=c.onreadystatechange=o(function(){if(!(l||this.readyState&&"loaded"!==this.readyState&&"complete"!==this.readyState)){c.onload=c.onreadystatechange=null;try{p.removeChild(c)}catch(r){}l=!0,i()}}),p.insertBefore(c,d)},a.prototype.wrap=function(r,e){try{var o;if(o="function"==typeof e?e:function(){return e||{}},"function"!=typeof r)return r;if(r._isWrap)return r;if(!r._wrapped){r._wrapped=function(){try{return r.apply(this,arguments)}catch(e){throw e._rollbarContext=o()||{},e._rollbarContext._wrappedSource=r.toString(),window._rollbarWrappedError=e,e}},r._wrapped._isWrap=!0;for(var t in r)r.hasOwnProperty(t)&&(r._wrapped[t]=r[t])}return r._wrapped}catch(n){return r}};for(var d="log,debug,info,warn,warning,error,critical,global,configure,scope,uncaughtError,unhandledRejection".split(","),p=0;p<d.length;++p)a.prototype[d[p]]=i(d[p]);r.exports={Rollbar:a,_rollbarWindowOnError:t}},function(r,e){"use strict";r.exports=function(r,e){return function(o){if(!o&&!window._rollbarInitialized){var t=window.RollbarNotifier,n=e||{},a=n.globalAlias||"Rollbar",i=window.Rollbar.init(n,r);i._processShimQueue(window._rollbarShimQueue||[]),window[a]=i,window._rollbarInitialized=!0,t.processPayloads()}}}}]);
+        </script><link rel="alternate" type="application/json+oembed" href="https://airtable.com/integration/oembed?url=https%3A%2F%2Fairtable.com%2FshrGb9KVidqxGWeot&amp;format=json&amp;layout=grid" title="Main View oEmbed Profile"><link rel="stylesheet" type="text/css" href="./all.css">
+<link rel="apple-touch-icon" sizes="180x180" href="https://airtable.com/images/favicon/baymax/apple-touch-icon.png">
+<link rel="manifest" href="https://airtable.com/images/favicon/baymax/manifest.json">
+<link rel="mask-icon" href="https://airtable.com/images/favicon/baymax/safari-pinned-tab.svg" color="#e82453"><link id="favIconCanvas" rel="icon" type="image/x-icon" href="https://airtable.com/images/favicon/baymax/android-chrome-192x192.png?v=2"><title>Airtable - Main View</title><script>
+window.initData = {"baseUrl":"https:\u002F\u002Fairtable.com","publicJsPath":"https:\u002F\u002Fstatic.airtable.com\u002Fjs\u002Fby_sha\u002F3a1ecd1c\u002F","sameOriginPublicJsPath":"https:\u002F\u002Fairtable.com\u002Fjs\u002Fcompiled\u002F","isPubliclyShared":true,"rawTables":{"tbliylWO11uMsYTMQ":{"id":"tbliylWO11uMsYTMQ","name":"Shared view table"}},"rawApplications":{"appu68JI9PHumLVBa":{"id":"appu68JI9PHumLVBa","name":"Shared view base","icon":"suitcase","color":"green","description":"Placeholder application for shared view","revisionHistoryEnabled":false,"visibleTableOrder":["tbliylWO11uMsYTMQ"]}},"rawWorkspaces":{"wspSHARED00000000":{"id":"wspSHARED00000000","name":"Placeholder workspace for shared application or view","visibleApplicationOrder":["appu68JI9PHumLVBa"],"billingPlanId":"plnbPlNFGdSC2wd8f"}},"rawBillingPlans":{"plnbPlNFGdSC2wd8f":{"id":"plnbPlNFGdSC2wd8f","grouping":"free","isPublic":true,"maxRevisionHistoryDays":null,"maxBlockInstallationsPerApplication":0,"trialDurationInDays":null,"costPerUserPerMonthInCents":0,"shouldGenerateInvoices":false,"premiumFeatures":[]}},"isLoggedIn":false,"isFirstLogin":false,"sessionUserId":"usrROSHARE0000000","collaboratorsByWorkspaceId":{},"collaboratorsByApplicationId":{},"rawUsers":{"usrROSHARE0000000":{"email":"guest@airtable.com","id":"usrROSHARE0000000","name":"Public","profilePicUrl":"https:\u002F\u002Fstatic.airtable.com\u002Fimages\u002FuserIcons\u002Fuser_icon_5.png","visibleWorkspaceOrder":["wspSHARED00000000"]}},"workspaceMultiUseInvitesByWorkspaceId":{},"applicationMultiUseInvitesByApplicationId":{},"lastTableIdsUsedByApplicationId":{},"applicationSharesByApplicationIdThenShareId":{},"enabledFeatureNames":["disableFlickrAndEvernoteUploads","percentFieldV2","onboardingMainGoalQuestion","adRollTryTracking","twitterPixelTracking","reactExpandedCell","uploadUserContentToDmz","analyticsIframeTracking","blocksUndo","shouldShowFormFieldAsList","formFieldWhitelist","filterLinkedRecordsInForms","autoSort","lastModifiedTime","selfLinkedFormulas","multipleBlockInstallationPages","filterLinkedRecords","newAttachmentProcessor","viewLocking","reactCellRenderers","hideInviteMessage","extraDocumentPreviews","disableBranchIos","newActivityFeed","deleteForeignDetailView","accountRefresh","realtimeCompression","apiCellFormatString","publish","iosFreezeNotificationsForPushRoutes","newBillingOnUpgrade","disableRollbarCaptureUnhandledRejections","workspaceOverPlanLimits","immediatelyChargeOnUpgrade"],"isDesktopAppWithMacFramelessWindow":false,"codeVersion":"3a1ecd1c1f91d1daf3043ed99a55a087c35cfe4a","shareId":"shrGb9KVidqxGWeot","hashedShareId":"16e5576db34040d062bcf7","shareObj":{"id":"shrGb9KVidqxGWeot","modelId":"viwhEbXP21ESF4QLO","createdByUserId":"usrcuNuWEkoLPSXWC","canBeCloned":false,"canBeExported":true,"includeHiddenColumns":false,"includeBlocks":false,"emailDomain":null,"hasPassword":false,"generationNumber":0,"metadata":null},"accessPolicy":"{\"allowedActions\":[{\"modelClassName\":\"view\",\"modelIdSelector\":\"viwhEbXP21ESF4QLO\",\"action\":\"readSharedViewData\"},{\"modelClassName\":\"view\",\"modelIdSelector\":\"viwhEbXP21ESF4QLO\",\"action\":\"getMetadataForPrinting\"},{\"modelClassName\":\"row\",\"modelIdSelector\":\"rows *[displayedInView=viwhEbXP21ESF4QLO]\",\"action\":\"createBoxDocumentSession\"},{\"modelClassName\":\"row\",\"modelIdSelector\":\"rows *[displayedInView=viwhEbXP21ESF4QLO]\",\"action\":\"createDocumentPreviewSession\"},{\"modelClassName\":\"view\",\"modelIdSelector\":\"viwhEbXP21ESF4QLO\",\"action\":\"downloadCsv\"},{\"modelClassName\":\"view\",\"modelIdSelector\":\"viwhEbXP21ESF4QLO\",\"action\":\"downloadICal\"},{\"modelClassName\":\"row\",\"modelIdSelector\":\"rows *[displayedInView=viwhEbXP21ESF4QLO]\",\"action\":\"downloadAttachment\"}],\"shareId\":\"shrGb9KVidqxGWeot\",\"applicationId\":\"appu68JI9PHumLVBa\",\"sessionId\":\"sesMmp960invOcp2A\",\"generationNumber\":0,\"signature\":\"be9dde6c9856bb725a637e180b07a7cde87558deeba48524c7f86495fe47e2d7\"}","sharedAppIcon":"suitcase","isMobile":false,"isEmbedded":true,"layout":"grid","showViewControls":false,"isExploreEmbed":false,"queryParamsToPreserveBetweenNavigation":{},"isPublicSharedView":true,"sharedModelName":"Main View","sharedModelDescription":null,"sharedViewId":"viwhEbXP21ESF4QLO","sharedViewType":"grid","sharedViewTableId":"tbliylWO11uMsYTMQ","defaultFormValues":{},"sharedBackgroundColor":"green"};
+</script><script src="./regenerator-runtime.min.js.download" crossorigin="anonymous"></script>
+<script src="./jquery.min.js.download" crossorigin="anonymous"></script>
+<script src="./jquery-ui-1.11.4.custom.mod4.min.js.download" crossorigin="anonymous"></script>
+<script src="./share.js.download" crossorigin="anonymous"></script></head><body class="pageload-app publiclyShared publicSharedView embedded coloredBackground coloredBorder" data-color="green">
+<div id="hyperbaseContainer" class=""><div id="topBarContainer"></div><div id="applicationContainer">
+<div id="blocksContainer" class="baymax relative" style="display: none;"><div data-reactroot="" class="absolute all-0 flex" style=""><div class="flex flex-auto flex-column overflow-hidden relative"><div class="relative flex-none flex flex-column no-user-select" style="height: 30px;"><div class="flex-auto flex justify-between"><div class="flex items-center pointer quiet link-unquiet text-white pl1" style="margin-top: -4px;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" class="flex-none blocksOnboardingTipTarget" style="shape-rendering: geometricprecision;"><path fill-rule="evenodd" class="" fill="currentColor" d="M1 14.01V9.99c0-.539.444-.99.99-.99h4.02c.539 0 .99.444.99.99v4.02c0 .54-.444.99-.99.99H1.99a.996.996 0 0 1-.99-.99zm0-9.76A3.252 3.252 0 0 1 4.25 1 3.252 3.252 0 0 1 7.5 4.25 3.252 3.252 0 0 1 4.25 7.5 3.252 3.252 0 0 1 1 4.25zm7.05 2.22L11 1.366c.276-.479.727-.478 1.007 0l2.986 5.104c.28.479.056.866-.5.866H8.557c-.556 0-.783-.388-.506-.866zm1.8 6.85L11.5 12l-1.65-1.32a1.083 1.083 0 0 1 1.353-1.693l2.708 2.167a1.083 1.083 0 0 1 0 1.692l-2.708 2.167a1.083 1.083 0 1 1-1.354-1.692z"></path></svg><div class="flex items-baseline"><div class="caps small strong ml-half">Blocks</div></div></div><div class="flex-none flex text-white" style="margin-top: -4px;"><div class="flex items-center ml2 quiet link-unquiet pointer mr1"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" class="icon" style="shape-rendering: geometricprecision;"><path fill-rule="evenodd" class="" fill="currentColor" d="M7.41421356,6 L9.88226406,3.5319495 C10.0816659,3.33254771 10.0828664,3.01179862 9.88577489,2.81470708 L9.18529292,2.11422511 C8.97977275,1.90870494 8.66708101,1.91870543 8.4680505,2.11773594 L6,4.58578644 L3.5319495,2.11773594 C3.33254771,1.91833414 3.01179862,1.91713357 2.81470708,2.11422511 L2.11422511,2.81470708 C1.90870494,3.02022725 1.91870543,3.33291899 2.11773594,3.5319495 L4.58578644,6 L2.11773594,8.4680505 C1.91833414,8.66745229 1.91713357,8.98820138 2.11422511,9.18529292 L2.81470708,9.88577489 C3.02022725,10.0912951 3.33291899,10.0812946 3.5319495,9.88226406 L6,7.41421356 L8.4680505,9.88226406 C8.66745229,10.0816659 8.98820138,10.0828664 9.18529292,9.88577489 L9.88577489,9.18529292 C10.0912951,8.97977275 10.0812946,8.66708101 9.88226406,8.4680505 L7.41421356,6 L7.41421356,6 Z"></path></svg></div></div></div></div><div class="relative flex-auto white"><div class="flex flex-column absolute all-0 overflow-hidden"><div class="flex flex-auto justify-center items-center"><svg xmlns="http://www.w3.org/2000/svg" width="16.2" height="16.2" viewBox="0 0 54 54" class="animate-spin-scale animate-infinite " style="shape-rendering: geometricprecision;"><g><path d="M10.9,48.6c-1.6-1.3-2-3.6-0.7-5.3c1.3-1.6,3.6-2.1,5.3-0.8c0.8,0.5,1.5,1.1,2.4,1.5c7.5,4.1,16.8,2.7,22.8-3.4c1.5-1.5,3.8-1.5,5.3,0c1.4,1.5,1.4,3.9,0,5.3c-8.4,8.5-21.4,10.6-31.8,4.8C13,50.1,11.9,49.3,10.9,48.6z" fill="#888"></path><path d="M53.6,31.4c-0.3,2.1-2.3,3.5-4.4,3.2c-2.1-0.3-3.4-2.3-3.1-4.4c0.2-1.1,0.2-2.2,0.2-3.3c0-8.7-5.7-16.2-13.7-18.5c-2-0.5-3.2-2.7-2.6-4.7s2.6-3.2,4.7-2.6C46,4.4,53.9,14.9,53.9,27C53.9,28.5,53.8,30,53.6,31.4z" fill="#888"></path><path d="M16.7,1.9c1.9-0.8,4.1,0.2,4.8,2.2s-0.2,4.2-2.1,5c-7.2,2.9-12,10-12,18.1c0,1.6,0.2,3.2,0.6,4.7c0.5,2-0.7,4.1-2.7,4.6c-2,0.5-4-0.7-4.5-2.8C0.3,31.5,0,29.3,0,27.1C0,15.8,6.7,5.9,16.7,1.9z" fill="#888"></path></g></svg></div></div></div></div></div></div>
+<div id="tableTabsContainer" class="relative hide-print" style="display: block;"></div>
+<div id="table" class="readonly" style="display: block;">
+<div class="viewBarContainer baymax flex">
+<span class="viewSwitcherContainer flex-none flex items-center"></span>
+<span class="viewConfigContainer flex-auto flex items-center"><div data-reactroot="" class="flex items-center width-full relative"><div class="flex items-center px1 hide"><div class="flex items-center relative"><div><span role="button" class=""><div data-color="cyan" class="strong pointer flex items-center mr1 rounded px1 py-half my-half animate-background-color darken1-hover"><svg xmlns="http://www.w3.org/2000/svg" width="17.6" height="17.6" viewBox="0 0 16 16" class="icon" style="shape-rendering: geometricprecision;"><path fill-rule="evenodd" class="" fill="currentColor" d="M8.445 3.512L7.172 5.55c-1.227.149-2.34.627-3.339 1.347A8.182 8.182 0 0 0 2.59 8.001c.178.267.495.645.961 1.037.309.259.646.489 1.014.685l-.823 1.318a2 2 0 0 0-.194.403C1.447 10.3.653 8.639.653 8.639.358 8.175.4 7.462.777 7.05c0 0 2.623-3.55 7.222-3.55.151 0 .3.004.446.012zm3.94 1.212c1.852 1.09 2.86 2.513 2.86 2.513.353.421.404 1.147.09 1.588 0 0-1.834 3.675-7.334 3.675-.153 0-.303-.003-.45-.009l1.265-2.024c1.541-.128 2.737-.622 3.663-1.365.453-.363.76-.71.933-.955.06-.085.105-.158.133-.215a2 2 0 0 1 .16-.267c-.209.294-.211.553-.042.794l-.05-.067a3.582 3.582 0 0 0-.2-.245 8.452 8.452 0 0 0-2.073-1.719l.918-1.47c.048-.076.09-.155.126-.234zm-6.358 7.925a.75.75 0 0 1-1.278-.785l5.256-8.559a.75.75 0 1 1 1.278.785l-5.256 8.56z"></path></svg><div class="ml-half">Hide fields</div></div></span></div><div><span class="collapsed" role="button"><div data-color="green" class="strong pointer flex items-center mr1 rounded px1 py-half my-half animate-background-color darken1-hover"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" class="icon" style="shape-rendering: geometricprecision;"><path fill-rule="evenodd" class="" fill="currentColor" d="M5.5 13c0-.552.444-1 1-1h3c.552 0 1 .444 1 1 0 .552-.444 1-1 1h-3c-.552 0-1-.444-1-1zm-2-4c0-.552.446-1 .998-1h7.004c.551 0 .998.444.998 1 0 .552-.446 1-.998 1H4.498A.996.996 0 0 1 3.5 9zM1 4.5C1 3.672 1.675 3 2.498 3h11.004C14.329 3 15 3.666 15 4.5c0 .828-.675 1.5-1.498 1.5H2.498A1.495 1.495 0 0 1 1 4.5z"></path></svg><div class="ml-half">Filter</div></div></span></div><div><span class="collapsed" role="button"><div data-color="purple" class="strong pointer flex items-center mr1 rounded px1 py-half my-half animate-background-color darken1-hover"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" class="icon" style="shape-rendering: geometricprecision;"><path fill-rule="evenodd" class="" fill="currentColor" d="M1 3.006C1 1.898 1.897 1 3.006 1h9.988C14.102 1 15 1.897 15 3.006v9.988A2.005 2.005 0 0 1 12.994 15H3.006A2.005 2.005 0 0 1 1 12.994V3.006zm2 .99v8.009c0 .54.446.995.995.995h8.01c.54 0 .995-.446.995-.995v-8.01c0-.54-.446-.995-.995-.995h-8.01C3.455 3 3 3.446 3 3.995zM7 6c0-.552.444-1 1-1h3c.552 0 1 .444 1 1 0 .552-.444 1-1 1H8c-.552 0-1-.444-1-1zm0 4c0-.552.444-1 1-1h3c.552 0 1 .444 1 1 0 .552-.444 1-1 1H8c-.552 0-1-.444-1-1zM4 6c0-.552.444-1 1-1 .552 0 1 .444 1 1 0 .552-.444 1-1 1-.552 0-1-.444-1-1zm0 4c0-.552.444-1 1-1 .552 0 1 .444 1 1 0 .552-.444 1-1 1-.552 0-1-.444-1-1z"></path></svg><div class="ml-half">Group</div></div></span></div><div><span class="collapsed" role="button"><div data-color="orange" class="strong pointer flex items-center mr1 rounded px1 py-half my-half animate-background-color darken1-hover"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" class="icon" style="shape-rendering: geometricprecision;"><path fill-rule="evenodd" class="" fill="currentColor" d="M11.61 3.3l2.28 2.933c.335.43.161.784-.392.784H12v5.997a.994.994 0 0 1-1 1.003c-.556 0-1-.449-1-1.003V7.017H8.502c-.555 0-.73-.35-.392-.784l2.28-2.932c.335-.43.883-.433 1.22 0zm-6 9.416c-.337.433-.885.43-1.22 0L2.11 9.784C1.773 9.35 1.947 9 2.502 9H4V3.003A.999.999 0 0 1 5 2c.552 0 1 .438 1 1.003V9h1.498c.553 0 .727.353.392.784l-2.28 2.932z"></path></svg><div class="ml-half">Sort</div></div></span></div><div><span role="button" class=""><div class="flex items-center px1 py-half rounded pointer animate-background-color darken1-hover pointer mr1" style="min-height: 26px;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" class="flex-none" style="shape-rendering: geometricprecision;"><path fill-rule="evenodd" class="" fill="currentColor" d="M12.002 11.511v-7h-.626c-.3 0-.479-.37-.312-.645l1.422-1.645a.7.7 0 0 1 1.059 0l1.422 1.645c.166.276-.013.646-.312.646H14v7h.655c.3 0 .478.37.312.645l-1.417 1.677a.7.7 0 0 1-1.07 0l-1.416-1.677c-.167-.276.012-.646.312-.646h.626zM1.5 2h8a.5.5 0 0 1 .5.5v7.979a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5V2.5a.5.5 0 0 1 .5-.5zm0 11h8a.5.5 0 1 1 0 1h-8a.5.5 0 1 1 0-1z"></path></svg></div></span></div></div><span class="flex items-center"></span><div class="viewMenuPopover relative"><span class="viewMenuButton pointer" role="button"><div class="p1 pointer darken1-hover rounded flex items-center animate"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" class="icon" style="shape-rendering: geometricprecision;"><path fill-rule="evenodd" class="" fill="currentColor" d="M10.5,8 C9.67157288,8 9,7.32842712 9,6.5 C9,5.67157288 9.67157288,5 10.5,5 C11.3284271,5 12,5.67157288 12,6.5 C12,7.32842712 11.3284271,8 10.5,8 Z M6,8 C5.17157288,8 4.5,7.32842712 4.5,6.5 C4.5,5.67157288 5.17157288,5 6,5 C6.82842712,5 7.5,5.67157288 7.5,6.5 C7.5,7.32842712 6.82842712,8 6,8 Z M1.5,8 C0.671572875,8 0,7.32842712 0,6.5 C0,5.67157288 0.671572875,5 1.5,5 C2.32842712,5 3,5.67157288 3,6.5 C3,7.32842712 2.32842712,8 1.5,8 Z"></path></svg></div></span></div></div></div></span>
+<div id="searchButton" class="flex-none flex"><div data-reactroot="" class="flex items-center quiet link-unquiet pointer"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" class="noevents" style="shape-rendering: geometricprecision;"><path fill-rule="evenodd" class="" fill="currentColor" d="M6.1485,10.2969 C4.1335,10.2969 2.5005,8.6639 2.5005,6.6489 C2.5005,4.6339 4.1335,2.9999 6.1485,2.9999 C8.1635,2.9999 9.7965,4.6339 9.7965,6.6489 C9.7965,8.6639 8.1635,10.2969 6.1485,10.2969 M14.2075,12.6429 L11.0995,9.7069 C11.0555,9.6629 10.9995,9.6419 10.9505,9.6079 C11.4835,8.7459 11.7965,7.7339 11.7965,6.6489 C11.7965,3.5339 9.2635,0.9999 6.1485,0.9999 C3.0335,0.9999 0.5005,3.5339 0.5005,6.6489 C0.5005,9.7629 3.0335,12.2969 6.1485,12.2969 C7.1495,12.2969 8.0885,12.0329 8.9045,11.5739 C8.9455,11.6409 8.9765,11.7129 9.0355,11.7709 L12.1435,14.7069 C12.5335,15.0979 13.1665,15.0979 13.5575,14.7069 L14.2075,14.0569 C14.5975,13.6669 14.5975,13.0339 14.2075,12.6429"></path></svg></div></div>
+</div><div class="viewLoadOverlay" style="display: none;">
+<div class="message">
+<svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" viewBox="0 0 54 54" class="animate-spin-scale animate-infinite loader mx-auto" style="shape-rendering: geometricPrecision;">
+<g>
+<path d="M10.9,48.6c-1.6-1.3-2-3.6-0.7-5.3c1.3-1.6,3.6-2.1,5.3-0.8c0.8,0.5,1.5,1.1,2.4,1.5c7.5,4.1,16.8,2.7,22.8-3.4c1.5-1.5,3.8-1.5,5.3,0c1.4,1.5,1.4,3.9,0,5.3c-8.4,8.5-21.4,10.6-31.8,4.8C13,50.1,11.9,49.3,10.9,48.6z" fill="#888"></path>
+<path d="M53.6,31.4c-0.3,2.1-2.3,3.5-4.4,3.2c-2.1-0.3-3.4-2.3-3.1-4.4c0.2-1.1,0.2-2.2,0.2-3.3c0-8.7-5.7-16.2-13.7-18.5c-2-0.5-3.2-2.7-2.6-4.7s2.6-3.2,4.7-2.6C46,4.4,53.9,14.9,53.9,27C53.9,28.5,53.8,30,53.6,31.4z" fill="#888"></path>
+<path d="M16.7,1.9c1.9-0.8,4.1,0.2,4.8,2.2s-0.2,4.2-2.1,5c-7.2,2.9-12,10-12,18.1c0,1.6,0.2,3.2,0.6,4.7c0.5,2-0.7,4.1-2.7,4.6c-2,0.5-4-0.7-4.5-2.8C0.3,31.5,0,29.3,0,27.1C0,15.8,6.7,5.9,16.7,1.9z" fill="#888"></path>
+</g>
+</svg></div>
+</div><div id="view" class="overflow-hidden"><div id="gridView" class="baymax rowHeight3">
+<div id="paneContainer">
+<div id="scrollOverlay" class="antiscroll-wrap">
+<div class="antiscroll-inner" style="width: 700px; height: 410px; overflow: scroll;">
+<div class="content" style="width: 840px; height: 505px;"></div>
+</div>
+<div class="antiscroll-scrollbar antiscroll-scrollbar-horizontal antiscroll-scrollbar-shown" style="transform: translate3d(0px, 0px, 0px); width: 580px;"></div><div class="antiscroll-scrollbar antiscroll-scrollbar-vertical antiscroll-scrollbar-shown" style="transform: translate3d(0px, 0px, 0px); height: 302.02px;"></div></div>
+<div id="headerAndDataRowContainer">
+<div class="leftPaneWrapper" style="width: 156px;">
+<div id="headerLeftPane" class="pane">
+<div class="paneInnerContent"><div class="headerRow leftPane" style="left: 0px;">
+<div class="staticCellContainer">
+<div class="rowNumber">
+<div class="checkbox flex items-center justify-center text-white">
+<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" class="icon" style="shape-rendering: geometricPrecision;">
+<path fill-rule="evenodd" fill="currentColor" d="M4.28873956,8.67773237 C4.68155785,9.06558677 5.32353851,9.05881767 5.7149082,8.67029224 L8.99219858,5.41681942 C9.38703148,5.02485595 9.39324696,4.39324696 9,4 L9,4 C8.60947571,3.60947571 7.98900805,3.60797445 7.59455526,4.0169601 L5.35239726,6.34172612 C5.15777363,6.54352029 4.85168871,6.5448785 4.66030753,6.33553882 L4.38384571,6.03313484 C4.01009312,5.62431068 3.39324696,5.60675304 3,6 L3,6 C2.60947571,6.39052429 2.61406454,7.02421959 3.00415366,7.40937929 L4.28873956,8.67773237 Z">
+</path>
+</svg></div>
+</div>
+</div>
+<div class="cell header primary read readonly" data-columnid="fldtwo4P8ZvRw9QJX" ,="" data-columnindex="0" style="left: 0px; width: 90px;">
+<div class="contentWrapper">
+<div class="nameAndDescription">
+<div class="absolute quietest lock" title="" style="left:-19px;"><svg xmlns="http://www.w3.org/2000/svg" width="9.6" height="9.6" viewBox="0 0 16 16" style="shape-rendering:geometricPrecision;" class="icon"><path fill-rule="evenodd" class="" fill="currentColor" d="M12.636 7.91V6.726C12.636 4.364 10.52 2 7.91 2 5.3 2 3.182 4.334 3.182 6.727V7.91C2.529 7.91 2 8.442 2 9.08v4.75c0 .646.539 1.17 1.176 1.17h9.466a1.18 1.18 0 0 0 1.176-1.17V9.08a1.18 1.18 0 0 0-1.182-1.17zm-7.09 0h4.727V6.726s0-2.363-2.364-2.363-2.364 2.363-2.364 2.363V7.91z"></path></svg></div><span class="name" title="id">id</span>
+</div>
+</div>
+<span class="warningSign" style="display: none;">
+<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" class="icon" style="shape-rendering: geometricPrecision;">
+<path fill-rule="evenodd" fill="currentColor" d="M0.460887779,10.1167095 L5.07609578,1.27167242 C5.58808735,0.290441573 6.41433749,0.293204761 6.92479743,1.27167242 L11.5391933,10.1167095 C11.7934846,10.604144 11.5511774,11 10.9975267,11 L1.00247329,11 C0.455760956,11 0.206346487,10.6045374 0.460887779,10.1167095 Z M5,4.0093689 L5,5.9906311 C5,6.55664682 5.44771525,7 6,7 C6.55613518,7 7,6.54809015 7,5.9906311 L7,4.0093689 C7,3.44335318 6.55228475,3 6,3 C5.44386482,3 5,3.45190985 5,4.0093689 Z M6,10 C6.55228475,10 7,9.55228475 7,9 C7,8.44771525 6.55228475,8 6,8 C5.44771525,8 5,8.44771525 5,9 C5,9.55228475 5.44771525,10 6,10 Z">
+</path>
+</svg></span>
+<span class="menuButton" style="display: none;">
+<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" class="icon" style="shape-rendering: geometricPrecision;">
+<path fill-rule="evenodd" fill="currentColor" d="M3.6011,4.00002 L8.4011,4.00002 C8.8951,4.00002 9.1771,4.56402 8.8811,4.96002 L6.4811,8.16002 C6.2411,8.48002 5.7611,8.48002 5.5211,8.16002 L3.1211,4.96002 C2.8241,4.56402 3.1071,4.00002 3.6011,4.00002">
+</path>
+</svg></span>
+<div class="columnDescriptionEditorContainer"><div data-reactroot="" class="absolute" style="top: 8px; right: 22px;"></div></div>
+<div class="resizeHandle" style="display: block;"><div class="draggingLine"></div></div>
+<div class="columnMenuContainer"></div>
+<div class="columnConfigDialogContainer"></div>
+</div></div></div>
+</div>
+<div id="dataLeftPane" class="pane">
+<div class="paneInnerContent" style="height: 440px;">
+
+
+
+
+
+
+
+
+
+<div class="dataRow ghost leftPane" title="You cannot create a new grouped record when grouping by a computed field" style="top: 440px; left: 0px;">
+<div class="rowNumber">
+<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" class="icon" style="shape-rendering: geometricPrecision;">
+<path fill-rule="evenodd" fill="currentColor" d="M9.5,5 L7,5 L7,2.5 C7,2.224 6.776,2 6.5,2 L5.5,2 C5.224,2 5,2.224 5,2.5 L5,5 L2.5,5 C2.224,5 2,5.224 2,5.5 L2,6.5 C2,6.776 2.224,7 2.5,7 L5,7 L5,9.5 C5,9.776 5.224,10 5.5,10 L6.5,10 C6.776,10 7,9.776 7,9.5 L7,7 L9.5,7 C9.776,7 10,6.776 10,6.5 L10,5.5 C10,5.224 9.776,5 9.5,5">
+</path>
+</svg></div>
+</div>
+<div class="dataRow leftPane firstRow" data-rowid="rectET6p9PjiVaFqz" style="top: 0px; left: 0px;">
+<div class="staticCellContainer">
+<div class="rowNumber">
+<div class="grabby"></div>
+<div class="numberText" data-rownumberlength="1">1</div>
+<div class="checkbox flex items-center justify-center text-white">
+<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" class="icon" style="shape-rendering: geometricPrecision;">
+<path fill-rule="evenodd" fill="currentColor" d="M4.28873956,8.67773237 C4.68155785,9.06558677 5.32353851,9.05881767 5.7149082,8.67029224 L8.99219858,5.41681942 C9.38703148,5.02485595 9.39324696,4.39324696 9,4 L9,4 C8.60947571,3.60947571 7.98900805,3.60797445 7.59455526,4.0169601 L5.35239726,6.34172612 C5.15777363,6.54352029 4.85168871,6.5448785 4.66030753,6.33553882 L4.38384571,6.03313484 C4.01009312,5.62431068 3.39324696,5.60675304 3,6 L3,6 C2.60947571,6.39052429 2.61406454,7.02421959 3.00415366,7.40937929 L4.28873956,8.67773237 Z">
+</path>
+</svg></div>
+</div>
+<div class="rowColorContainer">
+<div class="rowColor "></div>
+</div>
+<a class="expandButtonLeft" onclick="window.onNavLinkClick(event)" href="https://airtable.com/embed/shrGb9KVidqxGWeot/tbliylWO11uMsYTMQ/viwhEbXP21ESF4QLO/rectET6p9PjiVaFqz?blocks=hide">
+<i title="Expand record (space)">
+<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" class="icon" style="shape-rendering: geometricPrecision;">
+<path fill-rule="evenodd" fill="currentColor" d="M4.77546101,10.4553613 L1.81474478,10.8783208 C1.25439084,10.9583713 0.87938524,10.5736845 0.958225649,10.0218016 L1.38118511,7.06108542 C1.45982823,6.51058357 1.83916177,6.38790899 2.22968611,6.77843328 L2.93679297,7.48554006 L4.10581974,6.3165134 C4.49903533,5.92329779 5.12937282,5.9261252 5.51989706,6.31664944 C5.91314397,6.70989635 5.91048225,7.3402777 5.52003317,7.73072683 L4.35100654,8.89975362 L5.05811323,9.6068604 C5.45136014,10.0001074 5.32208977,10.3772715 4.77546101,10.4553613 Z M7.10137856,1.3810729 L10.0620948,0.958113443 C10.6224487,0.87806288 10.9974543,1.26274971 10.9186139,1.81463257 L10.4956545,4.7753488 C10.4170113,5.32585066 10.0376778,5.44852523 9.64715346,5.05800094 L8.94004659,4.35089416 L7.45430822,5.83663252 C7.06109263,6.22984813 6.43075515,6.22702073 6.0402309,5.83649648 C5.64698399,5.44324957 5.64964572,4.81286823 6.04009479,4.42241909 L7.52583303,2.9366806 L6.81872633,2.22957382 C6.42547942,1.83632686 6.5547498,1.45916273 7.10137856,1.3810729 Z">
+</path>
+</svg></i>
+<div class="commentCount"></div>
+</a>
+</div>
+<div data-columnid="fldtwo4P8ZvRw9QJX" data-columnindex="0" data-columntype="text" tabindex="-1" style="width: 90px; left: 0px; z-index: 0;" class="cell primary read"><div class="flex-auto" style="padding:6px;"><div class="line-height-4 overflow-hidden truncate-block-4-lines pre-wrap break-word" style="max-height:78px;">1</div></div></div>
+</div>
+
+<div class="dataRow leftPane " data-rowid="recAAuW5waDJPSSqS" style="top: 88px; left: 0px;">
+<div class="staticCellContainer">
+<div class="rowNumber">
+<div class="grabby"></div>
+<div class="numberText" data-rownumberlength="1">2</div>
+<div class="checkbox flex items-center justify-center text-white">
+<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" class="icon" style="shape-rendering: geometricPrecision;">
+<path fill-rule="evenodd" fill="currentColor" d="M4.28873956,8.67773237 C4.68155785,9.06558677 5.32353851,9.05881767 5.7149082,8.67029224 L8.99219858,5.41681942 C9.38703148,5.02485595 9.39324696,4.39324696 9,4 L9,4 C8.60947571,3.60947571 7.98900805,3.60797445 7.59455526,4.0169601 L5.35239726,6.34172612 C5.15777363,6.54352029 4.85168871,6.5448785 4.66030753,6.33553882 L4.38384571,6.03313484 C4.01009312,5.62431068 3.39324696,5.60675304 3,6 L3,6 C2.60947571,6.39052429 2.61406454,7.02421959 3.00415366,7.40937929 L4.28873956,8.67773237 Z">
+</path>
+</svg></div>
+</div>
+<div class="rowColorContainer">
+<div class="rowColor "></div>
+</div>
+<a class="expandButtonLeft" onclick="window.onNavLinkClick(event)" href="https://airtable.com/embed/shrGb9KVidqxGWeot/tbliylWO11uMsYTMQ/viwhEbXP21ESF4QLO/recAAuW5waDJPSSqS?blocks=hide">
+<i title="Expand record (space)">
+<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" class="icon" style="shape-rendering: geometricPrecision;">
+<path fill-rule="evenodd" fill="currentColor" d="M4.77546101,10.4553613 L1.81474478,10.8783208 C1.25439084,10.9583713 0.87938524,10.5736845 0.958225649,10.0218016 L1.38118511,7.06108542 C1.45982823,6.51058357 1.83916177,6.38790899 2.22968611,6.77843328 L2.93679297,7.48554006 L4.10581974,6.3165134 C4.49903533,5.92329779 5.12937282,5.9261252 5.51989706,6.31664944 C5.91314397,6.70989635 5.91048225,7.3402777 5.52003317,7.73072683 L4.35100654,8.89975362 L5.05811323,9.6068604 C5.45136014,10.0001074 5.32208977,10.3772715 4.77546101,10.4553613 Z M7.10137856,1.3810729 L10.0620948,0.958113443 C10.6224487,0.87806288 10.9974543,1.26274971 10.9186139,1.81463257 L10.4956545,4.7753488 C10.4170113,5.32585066 10.0376778,5.44852523 9.64715346,5.05800094 L8.94004659,4.35089416 L7.45430822,5.83663252 C7.06109263,6.22984813 6.43075515,6.22702073 6.0402309,5.83649648 C5.64698399,5.44324957 5.64964572,4.81286823 6.04009479,4.42241909 L7.52583303,2.9366806 L6.81872633,2.22957382 C6.42547942,1.83632686 6.5547498,1.45916273 7.10137856,1.3810729 Z">
+</path>
+</svg></i>
+<div class="commentCount"></div>
+</a>
+</div>
+<div data-columnid="fldtwo4P8ZvRw9QJX" data-columnindex="0" data-columntype="text" tabindex="-1" style="width: 90px; left: 0px; z-index: 0;" class="cell primary read"><div class="flex-auto" style="padding:6px;"><div class="line-height-4 overflow-hidden truncate-block-4-lines pre-wrap break-word" style="max-height:78px;">2</div></div></div>
+</div>
+
+<div class="dataRow leftPane " data-rowid="recoPbUD9Qs1ikLYV" style="top: 176px; left: 0px;">
+<div class="staticCellContainer">
+<div class="rowNumber">
+<div class="grabby"></div>
+<div class="numberText" data-rownumberlength="1">3</div>
+<div class="checkbox flex items-center justify-center text-white">
+<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" class="icon" style="shape-rendering: geometricPrecision;">
+<path fill-rule="evenodd" fill="currentColor" d="M4.28873956,8.67773237 C4.68155785,9.06558677 5.32353851,9.05881767 5.7149082,8.67029224 L8.99219858,5.41681942 C9.38703148,5.02485595 9.39324696,4.39324696 9,4 L9,4 C8.60947571,3.60947571 7.98900805,3.60797445 7.59455526,4.0169601 L5.35239726,6.34172612 C5.15777363,6.54352029 4.85168871,6.5448785 4.66030753,6.33553882 L4.38384571,6.03313484 C4.01009312,5.62431068 3.39324696,5.60675304 3,6 L3,6 C2.60947571,6.39052429 2.61406454,7.02421959 3.00415366,7.40937929 L4.28873956,8.67773237 Z">
+</path>
+</svg></div>
+</div>
+<div class="rowColorContainer">
+<div class="rowColor "></div>
+</div>
+<a class="expandButtonLeft" onclick="window.onNavLinkClick(event)" href="https://airtable.com/embed/shrGb9KVidqxGWeot/tbliylWO11uMsYTMQ/viwhEbXP21ESF4QLO/recoPbUD9Qs1ikLYV?blocks=hide">
+<i title="Expand record (space)">
+<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" class="icon" style="shape-rendering: geometricPrecision;">
+<path fill-rule="evenodd" fill="currentColor" d="M4.77546101,10.4553613 L1.81474478,10.8783208 C1.25439084,10.9583713 0.87938524,10.5736845 0.958225649,10.0218016 L1.38118511,7.06108542 C1.45982823,6.51058357 1.83916177,6.38790899 2.22968611,6.77843328 L2.93679297,7.48554006 L4.10581974,6.3165134 C4.49903533,5.92329779 5.12937282,5.9261252 5.51989706,6.31664944 C5.91314397,6.70989635 5.91048225,7.3402777 5.52003317,7.73072683 L4.35100654,8.89975362 L5.05811323,9.6068604 C5.45136014,10.0001074 5.32208977,10.3772715 4.77546101,10.4553613 Z M7.10137856,1.3810729 L10.0620948,0.958113443 C10.6224487,0.87806288 10.9974543,1.26274971 10.9186139,1.81463257 L10.4956545,4.7753488 C10.4170113,5.32585066 10.0376778,5.44852523 9.64715346,5.05800094 L8.94004659,4.35089416 L7.45430822,5.83663252 C7.06109263,6.22984813 6.43075515,6.22702073 6.0402309,5.83649648 C5.64698399,5.44324957 5.64964572,4.81286823 6.04009479,4.42241909 L7.52583303,2.9366806 L6.81872633,2.22957382 C6.42547942,1.83632686 6.5547498,1.45916273 7.10137856,1.3810729 Z">
+</path>
+</svg></i>
+<div class="commentCount"></div>
+</a>
+</div>
+<div data-columnid="fldtwo4P8ZvRw9QJX" data-columnindex="0" data-columntype="text" tabindex="-1" style="width: 90px; left: 0px; z-index: 0;" class="cell primary read"><div class="flex-auto" style="padding:6px;"><div class="line-height-4 overflow-hidden truncate-block-4-lines pre-wrap break-word" style="max-height:78px;">3</div></div></div>
+</div>
+
+<div class="dataRow leftPane " data-rowid="rec0ypwuth2XKgjxs" style="top: 264px; left: 0px;">
+<div class="staticCellContainer">
+<div class="rowNumber">
+<div class="grabby"></div>
+<div class="numberText" data-rownumberlength="1">4</div>
+<div class="checkbox flex items-center justify-center text-white">
+<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" class="icon" style="shape-rendering: geometricPrecision;">
+<path fill-rule="evenodd" fill="currentColor" d="M4.28873956,8.67773237 C4.68155785,9.06558677 5.32353851,9.05881767 5.7149082,8.67029224 L8.99219858,5.41681942 C9.38703148,5.02485595 9.39324696,4.39324696 9,4 L9,4 C8.60947571,3.60947571 7.98900805,3.60797445 7.59455526,4.0169601 L5.35239726,6.34172612 C5.15777363,6.54352029 4.85168871,6.5448785 4.66030753,6.33553882 L4.38384571,6.03313484 C4.01009312,5.62431068 3.39324696,5.60675304 3,6 L3,6 C2.60947571,6.39052429 2.61406454,7.02421959 3.00415366,7.40937929 L4.28873956,8.67773237 Z">
+</path>
+</svg></div>
+</div>
+<div class="rowColorContainer">
+<div class="rowColor "></div>
+</div>
+<a class="expandButtonLeft" onclick="window.onNavLinkClick(event)" href="https://airtable.com/embed/shrGb9KVidqxGWeot/tbliylWO11uMsYTMQ/viwhEbXP21ESF4QLO/rec0ypwuth2XKgjxs?blocks=hide">
+<i title="Expand record (space)">
+<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" class="icon" style="shape-rendering: geometricPrecision;">
+<path fill-rule="evenodd" fill="currentColor" d="M4.77546101,10.4553613 L1.81474478,10.8783208 C1.25439084,10.9583713 0.87938524,10.5736845 0.958225649,10.0218016 L1.38118511,7.06108542 C1.45982823,6.51058357 1.83916177,6.38790899 2.22968611,6.77843328 L2.93679297,7.48554006 L4.10581974,6.3165134 C4.49903533,5.92329779 5.12937282,5.9261252 5.51989706,6.31664944 C5.91314397,6.70989635 5.91048225,7.3402777 5.52003317,7.73072683 L4.35100654,8.89975362 L5.05811323,9.6068604 C5.45136014,10.0001074 5.32208977,10.3772715 4.77546101,10.4553613 Z M7.10137856,1.3810729 L10.0620948,0.958113443 C10.6224487,0.87806288 10.9974543,1.26274971 10.9186139,1.81463257 L10.4956545,4.7753488 C10.4170113,5.32585066 10.0376778,5.44852523 9.64715346,5.05800094 L8.94004659,4.35089416 L7.45430822,5.83663252 C7.06109263,6.22984813 6.43075515,6.22702073 6.0402309,5.83649648 C5.64698399,5.44324957 5.64964572,4.81286823 6.04009479,4.42241909 L7.52583303,2.9366806 L6.81872633,2.22957382 C6.42547942,1.83632686 6.5547498,1.45916273 7.10137856,1.3810729 Z">
+</path>
+</svg></i>
+<div class="commentCount"></div>
+</a>
+</div>
+<div data-columnid="fldtwo4P8ZvRw9QJX" data-columnindex="0" data-columntype="text" tabindex="-1" style="width: 90px; left: 0px; z-index: 0;" class="cell primary read"><div class="flex-auto" style="padding:6px;"><div class="line-height-4 overflow-hidden truncate-block-4-lines pre-wrap break-word" style="max-height:78px;">4</div></div></div>
+</div>
+
+<div class="dataRow leftPane " data-rowid="recx5sx8i4uGSumB2" style="top: 352px; left: 0px;">
+<div class="staticCellContainer">
+<div class="rowNumber">
+<div class="grabby"></div>
+<div class="numberText" data-rownumberlength="1">5</div>
+<div class="checkbox flex items-center justify-center text-white">
+<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" class="icon" style="shape-rendering: geometricPrecision;">
+<path fill-rule="evenodd" fill="currentColor" d="M4.28873956,8.67773237 C4.68155785,9.06558677 5.32353851,9.05881767 5.7149082,8.67029224 L8.99219858,5.41681942 C9.38703148,5.02485595 9.39324696,4.39324696 9,4 L9,4 C8.60947571,3.60947571 7.98900805,3.60797445 7.59455526,4.0169601 L5.35239726,6.34172612 C5.15777363,6.54352029 4.85168871,6.5448785 4.66030753,6.33553882 L4.38384571,6.03313484 C4.01009312,5.62431068 3.39324696,5.60675304 3,6 L3,6 C2.60947571,6.39052429 2.61406454,7.02421959 3.00415366,7.40937929 L4.28873956,8.67773237 Z">
+</path>
+</svg></div>
+</div>
+<div class="rowColorContainer">
+<div class="rowColor "></div>
+</div>
+<a class="expandButtonLeft" onclick="window.onNavLinkClick(event)" href="https://airtable.com/embed/shrGb9KVidqxGWeot/tbliylWO11uMsYTMQ/viwhEbXP21ESF4QLO/recx5sx8i4uGSumB2?blocks=hide">
+<i title="Expand record (space)">
+<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" class="icon" style="shape-rendering: geometricPrecision;">
+<path fill-rule="evenodd" fill="currentColor" d="M4.77546101,10.4553613 L1.81474478,10.8783208 C1.25439084,10.9583713 0.87938524,10.5736845 0.958225649,10.0218016 L1.38118511,7.06108542 C1.45982823,6.51058357 1.83916177,6.38790899 2.22968611,6.77843328 L2.93679297,7.48554006 L4.10581974,6.3165134 C4.49903533,5.92329779 5.12937282,5.9261252 5.51989706,6.31664944 C5.91314397,6.70989635 5.91048225,7.3402777 5.52003317,7.73072683 L4.35100654,8.89975362 L5.05811323,9.6068604 C5.45136014,10.0001074 5.32208977,10.3772715 4.77546101,10.4553613 Z M7.10137856,1.3810729 L10.0620948,0.958113443 C10.6224487,0.87806288 10.9974543,1.26274971 10.9186139,1.81463257 L10.4956545,4.7753488 C10.4170113,5.32585066 10.0376778,5.44852523 9.64715346,5.05800094 L8.94004659,4.35089416 L7.45430822,5.83663252 C7.06109263,6.22984813 6.43075515,6.22702073 6.0402309,5.83649648 C5.64698399,5.44324957 5.64964572,4.81286823 6.04009479,4.42241909 L7.52583303,2.9366806 L6.81872633,2.22957382 C6.42547942,1.83632686 6.5547498,1.45916273 7.10137856,1.3810729 Z">
+</path>
+</svg></i>
+<div class="commentCount"></div>
+</a>
+</div>
+<div data-columnid="fldtwo4P8ZvRw9QJX" data-columnindex="0" data-columntype="text" tabindex="-1" style="width: 90px; left: 0px; z-index: 0;" class="cell primary read"><div class="flex-auto" style="padding:6px;"><div class="line-height-4 overflow-hidden truncate-block-4-lines pre-wrap break-word" style="max-height:78px;">5</div></div></div>
+</div>
+</div>
+</div>
+</div>
+<div id="paneDivider" style="left: 155px;">
+<div class="line noevents"></div>
+<div class="dragHandle noevents"></div>
+<div class="tooltip">Drag to adjust the number of frozen columns</div>
+</div>
+<div class="rightPaneWrapper" style="left: 155px;">
+<div id="headerRightPane" class="pane">
+<div class="paneInnerContent"><div class="headerRow rightPane">
+<div class="cell ghost notPermitted" title="Add field" style="left: 532px;">
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" class="icon" style="shape-rendering: geometricPrecision;">
+<path fill-rule="evenodd" fill="currentColor" d="M9,7 L9,3.5 C9,3.224 8.776,3 8.5,3 L7.5,3 C7.224,3 7,3.224 7,3.5 L7,7 L3.5,7 C3.224,7 3,7.224 3,7.5 L3,8.5 C3,8.776 3.224,9 3.5,9 L7,9 L7,12.5 C7,12.776 7.224,13 7.5,13 L8.5,13 C8.776,13 9,12.776 9,12.5 L9,9 L12.5,9 C12.776,9 13,8.776 13,8.5 L13,7.5 C13,7.224 12.776,7 12.5,7 L9,7 Z">
+</path>
+</svg></div>
+<div class="cell header read readonly" data-columnid="fldqvbQIaavMAUVAX" ,="" data-columnindex="1" style="left: 0px; width: 434px;">
+<div class="contentWrapper">
+<div class="nameAndDescription">
+<span class="name" title="Skills">Skills</span>
+</div>
+</div>
+<span class="warningSign" style="display: none;">
+<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" class="icon" style="shape-rendering: geometricPrecision;">
+<path fill-rule="evenodd" fill="currentColor" d="M0.460887779,10.1167095 L5.07609578,1.27167242 C5.58808735,0.290441573 6.41433749,0.293204761 6.92479743,1.27167242 L11.5391933,10.1167095 C11.7934846,10.604144 11.5511774,11 10.9975267,11 L1.00247329,11 C0.455760956,11 0.206346487,10.6045374 0.460887779,10.1167095 Z M5,4.0093689 L5,5.9906311 C5,6.55664682 5.44771525,7 6,7 C6.55613518,7 7,6.54809015 7,5.9906311 L7,4.0093689 C7,3.44335318 6.55228475,3 6,3 C5.44386482,3 5,3.45190985 5,4.0093689 Z M6,10 C6.55228475,10 7,9.55228475 7,9 C7,8.44771525 6.55228475,8 6,8 C5.44771525,8 5,8.44771525 5,9 C5,9.55228475 5.44771525,10 6,10 Z">
+</path>
+</svg></span>
+<span class="menuButton" style="display: none;">
+<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" class="icon" style="shape-rendering: geometricPrecision;">
+<path fill-rule="evenodd" fill="currentColor" d="M3.6011,4.00002 L8.4011,4.00002 C8.8951,4.00002 9.1771,4.56402 8.8811,4.96002 L6.4811,8.16002 C6.2411,8.48002 5.7611,8.48002 5.5211,8.16002 L3.1211,4.96002 C2.8241,4.56402 3.1071,4.00002 3.6011,4.00002">
+</path>
+</svg></span>
+<div class="columnDescriptionEditorContainer"><div data-reactroot="" class="absolute" style="top: 8px; right: 22px;"></div></div>
+<div class="resizeHandle" style="display: block;"><div class="draggingLine"></div></div>
+<div class="columnMenuContainer"></div>
+<div class="columnConfigDialogContainer"></div>
+</div><div class="cell header read readonly" data-columnid="fldgDJUD1L2OeBEKk" ,="" data-columnindex="2" style="left: 434px; width: 98px;">
+<div class="contentWrapper">
+<div class="nameAndDescription">
+<span class="name" title="Job title">Job title</span>
+</div>
+</div>
+<span class="warningSign" style="display: none;">
+<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" class="icon" style="shape-rendering: geometricPrecision;">
+<path fill-rule="evenodd" fill="currentColor" d="M0.460887779,10.1167095 L5.07609578,1.27167242 C5.58808735,0.290441573 6.41433749,0.293204761 6.92479743,1.27167242 L11.5391933,10.1167095 C11.7934846,10.604144 11.5511774,11 10.9975267,11 L1.00247329,11 C0.455760956,11 0.206346487,10.6045374 0.460887779,10.1167095 Z M5,4.0093689 L5,5.9906311 C5,6.55664682 5.44771525,7 6,7 C6.55613518,7 7,6.54809015 7,5.9906311 L7,4.0093689 C7,3.44335318 6.55228475,3 6,3 C5.44386482,3 5,3.45190985 5,4.0093689 Z M6,10 C6.55228475,10 7,9.55228475 7,9 C7,8.44771525 6.55228475,8 6,8 C5.44771525,8 5,8.44771525 5,9 C5,9.55228475 5.44771525,10 6,10 Z">
+</path>
+</svg></span>
+<span class="menuButton" style="display: none;">
+<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" class="icon" style="shape-rendering: geometricPrecision;">
+<path fill-rule="evenodd" fill="currentColor" d="M3.6011,4.00002 L8.4011,4.00002 C8.8951,4.00002 9.1771,4.56402 8.8811,4.96002 L6.4811,8.16002 C6.2411,8.48002 5.7611,8.48002 5.5211,8.16002 L3.1211,4.96002 C2.8241,4.56402 3.1071,4.00002 3.6011,4.00002">
+</path>
+</svg></span>
+<div class="columnDescriptionEditorContainer"><div data-reactroot="" class="absolute" style="top: 8px; right: 22px;"></div></div>
+<div class="resizeHandle" style="display: block;"><div class="draggingLine"></div></div>
+<div class="columnMenuContainer"></div>
+<div class="columnConfigDialogContainer"></div>
+</div></div></div>
+</div>
+<div id="dataRightPane" class="pane">
+<div class="paneInnerContent" style="width: 532px; height: 440px;">
+
+
+
+
+
+
+
+
+
+<div class="dataRow ghost rightPane" title="You cannot create a new grouped record when grouping by a computed field" style="top: 440px; width: 533px;">
+</div>
+<div class="dataRow rightPane firstRow" data-rowid="rectET6p9PjiVaFqz" style="top: 0px;">
+<div data-columnid="fldqvbQIaavMAUVAX" data-columnindex="1" data-columntype="multilineText" tabindex="-1" style="width: 434px; left: 0px; z-index: 1;" class="cell read"><div class="flex-auto line-height-4" data-contextype="gridRead" style="padding:6px;"><div class="truncate-block-4-lines pre-wrap break-word overflow-hidden">['TECHNICAL SKILLS\xa0', &lt;br/&gt;, '\xa0', &lt;br/&gt;, '•    R                                          •   Tableau                                   •   Machine Learning\xa0', &lt;br/&gt;, '•    D3.js                                      •   SQL, PostgreSQL, pgadmin 4                •   JavaScript\xa0', &lt;br/&gt;, '•    Python                                     •   HTML/CSS                                  •   Statistics, Probability']</div></div></div><div data-columnid="fldgDJUD1L2OeBEKk" data-columnindex="2" data-columntype="text" tabindex="-1" style="width: 98px; left: 434px; z-index: 2;" class="cell read lastColumn"><div class="flex-auto" style="padding:6px;"><div class="line-height-4 overflow-hidden truncate-block-4-lines pre-wrap break-word" style="max-height:78px;">Data Scientist Intern</div></div></div>
+<div class="cell ghost" style="left: 532px;"></div>
+</div>
+
+<div class="dataRow rightPane " data-rowid="recAAuW5waDJPSSqS" style="top: 88px;">
+<div data-columnid="fldqvbQIaavMAUVAX" data-columnindex="1" data-columntype="multilineText" tabindex="-1" style="width: 434px; left: 0px; z-index: 1;" class="cell read"><div class="flex-auto line-height-4" data-contextype="gridRead" style="padding:6px;"><div class="truncate-block-4-lines pre-wrap break-word overflow-hidden">['TECHNICAL SKILLS:\xa0', &lt;br/&gt;, 'Languages    Java, C, C++, Python, R, Scala, SQL\xa0', &lt;br/&gt;, 'Web Services    SOAP, REST\xa0', &lt;br/&gt;, 'Web Technologies    HTML, CSS, JavaScript, PHP\xa0', &lt;br/&gt;, 'Database    DB2, MySQL\xa0', &lt;br/&gt;, 'Software    Android Studio, Eclipse, IntelliJ IDEA, NetBeans, GIT']</div></div></div><div data-columnid="fldgDJUD1L2OeBEKk" data-columnindex="2" data-columntype="text" tabindex="-1" style="width: 98px; left: 434px; z-index: 2;" class="cell read lastColumn"><div class="flex-auto" style="padding:6px;"><div class="line-height-4 overflow-hidden truncate-block-4-lines pre-wrap break-word" style="max-height:78px;">Junior Data Scientist</div></div></div>
+<div class="cell ghost" style="left: 532px;"></div>
+</div>
+
+<div class="dataRow rightPane " data-rowid="recoPbUD9Qs1ikLYV" style="top: 176px;">
+<div data-columnid="fldqvbQIaavMAUVAX" data-columnindex="1" data-columntype="multilineText" tabindex="-1" style="width: 434px; left: 0px; z-index: 1;" class="cell read"><div class="flex-auto line-height-4" data-contextype="gridRead" style="padding:6px;"><div class="truncate-block-4-lines pre-wrap break-word overflow-hidden">['TECHNICAL SKILLS\xa0', &lt;br/&gt;, '•   Proficient: Java, Haskell, Python, R, SQL, C, C++, Matlab, Excel, VBA\xa0', &lt;br/&gt;, '•   Familiar with: JMP, Tableau, ArcGIS, Weka, TensorFlow']</div></div></div><div data-columnid="fldgDJUD1L2OeBEKk" data-columnindex="2" data-columntype="text" tabindex="-1" style="width: 98px; left: 434px; z-index: 2;" class="cell read lastColumn"><div class="flex-auto" style="padding:6px;"><div class="line-height-4 overflow-hidden truncate-block-4-lines pre-wrap break-word" style="max-height:78px;">Data Scientist Intern</div></div></div>
+<div class="cell ghost" style="left: 532px;"></div>
+</div>
+
+<div class="dataRow rightPane " data-rowid="rec0ypwuth2XKgjxs" style="top: 264px;">
+<div data-columnid="fldqvbQIaavMAUVAX" data-columnindex="1" data-columntype="multilineText" tabindex="-1" style="width: 434px; left: 0px; z-index: 1;" class="cell read"><div class="flex-auto line-height-4" data-contextype="gridRead" style="padding:6px;"><div class="truncate-block-4-lines pre-wrap break-word overflow-hidden">['TECHNICAL SKILLS\xa0', &lt;br/&gt;, 'Relevant Coursework: Artificial Intelligence, Machine Learning, Data Mining, Statistics, Multivariate and\xa0', &lt;br/&gt;, 'Exploratory Data Analysis.\xa0', &lt;br/&gt;, 'Big Data Technologies: Hadoop, Apache Hive, Apache Pig, Apache Spark.\xa0', &lt;br/&gt;, 'Visualization Tools: Tableau, ggplot2, Sci2.\xa0', &lt;br/&gt;, 'Programming Languages: Python, Java, R, SQL, C.\xa0', &lt;br/&gt;, 'Databases: MySQL, Oracle, HBase.\xa0', &lt;br/&gt;, 'Web Application: HTML, CSS, JSP, Servlet, JavaFX, FXML.\xa0', &lt;br/&gt;, 'Operating Systems: Windows, Ubuntu.\xa0', &lt;br/&gt;, 'Microsoft Tools: MS Office Suite (Excel, Powerpoint, Word)']</div></div></div><div data-columnid="fldgDJUD1L2OeBEKk" data-columnindex="2" data-columntype="text" tabindex="-1" style="width: 98px; left: 434px; z-index: 2;" class="cell read lastColumn"><div class="flex-auto" style="padding:6px;"><div class="line-height-4 overflow-hidden truncate-block-4-lines pre-wrap break-word" style="max-height:78px;">Data Scientist</div></div></div>
+<div class="cell ghost" style="left: 532px;"></div>
+</div>
+
+<div class="dataRow rightPane " data-rowid="recx5sx8i4uGSumB2" style="top: 352px;">
+<div data-columnid="fldqvbQIaavMAUVAX" data-columnindex="1" data-columntype="multilineText" tabindex="-1" style="width: 434px; left: 0px; z-index: 1;" class="cell read"><div class="flex-auto line-height-4" data-contextype="gridRead" style="padding:6px;"><div class="truncate-block-4-lines pre-wrap break-word overflow-hidden">['SKILLS\xa0', &lt;br/&gt;, '\xa0', &lt;br/&gt;, 'SOFTWARE:\xa0', &lt;br/&gt;, '• System Checks and trouble shooting\xa0', &lt;br/&gt;, '• Computer/hardware support and troubleshooting\xa0', &lt;br/&gt;, '• Programming proficient ( Python, C/C++, MATLAB)\xa0', &lt;br/&gt;, '• CAD (PTC Creo),\xa0', &lt;br/&gt;, '• Mastery in Microsoft Excel, Microsoft Office, Microsoft Power Point\xa0', &lt;br/&gt;, 'DESIGN:\xa0', &lt;br/&gt;, '• Art composition\xa0', &lt;br/&gt;, '• Traditional fine arts skills (Painting, drawing, sketching)\xa0', &lt;br/&gt;, '• Graphic arts design (basic Photoshop)\xa0', &lt;br/&gt;, '• Engineering drafting techniques and skills\xa0', &lt;br/&gt;, 'OTHER:\xa0', &lt;br/&gt;, '• Bilingual -Chinese: Cantonese (Proficient)+ Mandarin (Conversational), English (Fluent)']</div></div></div><div data-columnid="fldgDJUD1L2OeBEKk" data-columnindex="2" data-columntype="text" tabindex="-1" style="width: 98px; left: 434px; z-index: 2;" class="cell read lastColumn"><div class="flex-auto" style="padding:6px;"><div class="line-height-4 overflow-hidden truncate-block-4-lines pre-wrap break-word" style="max-height:78px;">DATA SCIENTIST</div></div></div>
+<div class="cell ghost" style="left: 532px;"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="fillHandleWrapper">
+<div id="fillHandle" class="notPermitted" style="display: none;"></div>
+</div>
+</div>
+<div id="summaryBarContainer">
+<div class="leftPaneWrapper" style="width: 156px;">
+<div id="summaryLeftPane" class="pane">
+<div class="paneInnerContent"><div data-reactroot="" class="summaryBar leftPane"><div class="selectionCount summaryCell" style="width: 156px;">5  records</div><div class="summaryCellContainer" style="left: 66px;"><div class="summaryCell none" data-columnid="fldtwo4P8ZvRw9QJX" style="width: 91px; left: 0px;"><span class="toggleButton flex overflow-hidden pointer" role="button"><div class="flex flex-auto justify-end items-center container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" class="quieter flex-none caret" style="shape-rendering: geometricprecision;"><path fill-rule="evenodd" class="" fill="currentColor" d="M3.6011,4.00002 L8.4011,4.00002 C8.8951,4.00002 9.1771,4.56402 8.8811,4.96002 L6.4811,8.16002 C6.2411,8.48002 5.7611,8.48002 5.5211,8.16002 L3.1211,4.96002 C2.8241,4.56402 3.1071,4.00002 3.6011,4.00002"></path></svg><div class="small px-half flex-none quiet">Summary</div><div class="flex-none truncate"></div></div></span></div></div></div></div>
+</div>
+</div>
+<div class="rightPaneWrapper" style="left: 155px;">
+<div id="summaryRightPane" class="pane">
+<div class="paneInnerContent"><div data-reactroot="" class="summaryBar rightPane"><div class="summaryCellContainer" style="left: 0px;"><div class="summaryCell none" data-columnid="fldqvbQIaavMAUVAX" style="width: 435px; left: 0px;"><span class="toggleButton flex overflow-hidden pointer" role="button"><div class="flex flex-auto justify-end items-center container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" class="quieter flex-none caret" style="shape-rendering: geometricprecision;"><path fill-rule="evenodd" class="" fill="currentColor" d="M3.6011,4.00002 L8.4011,4.00002 C8.8951,4.00002 9.1771,4.56402 8.8811,4.96002 L6.4811,8.16002 C6.2411,8.48002 5.7611,8.48002 5.5211,8.16002 L3.1211,4.96002 C2.8241,4.56402 3.1071,4.00002 3.6011,4.00002"></path></svg><div class="small px-half flex-none quiet">Summary</div><div class="flex-none truncate"></div></div></span></div><div class="summaryCell none" data-columnid="fldgDJUD1L2OeBEKk" style="width: 99px; left: 434px;"><span class="toggleButton flex overflow-hidden pointer" role="button"><div class="flex flex-auto justify-end items-center container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" class="quieter flex-none caret" style="shape-rendering: geometricprecision;"><path fill-rule="evenodd" class="" fill="currentColor" d="M3.6011,4.00002 L8.4011,4.00002 C8.8951,4.00002 9.1771,4.56402 8.8811,4.96002 L6.4811,8.16002 C6.2411,8.48002 5.7611,8.48002 5.5211,8.16002 L3.1211,4.96002 C2.8241,4.56402 3.1071,4.00002 3.6011,4.00002"></path></svg><div class="small px-half flex-none quiet">Summary</div><div class="flex-none truncate"></div></div></span></div></div></div></div>
+</div>
+</div>
+</div>
+</div>
+<div id="rowRightClickMenu"></div>
+<div class="findBarContainer"></div>
+<div id="clipboardContainer"></div>
+<div id="emptyViewMessageContainer"></div>
+</div></div>
+</div><div id="sharedBlockInstallationContainer" class="baymax relative"></div>
+</div>
+<div id="snackbarContainer"></div><div id="softAlert" class="baymax softDialog white rounded-big stroked1">
+<h3 class="title mb2 display huge strong line-height-3">Alert</h3>
+<div class="body mb2 break-word">Lorem ipsum</div>
+<div class="buttons">
+<div class="okayButton right py1 px2 blue text-white strong rounded clickable-stroked1-inset pointer" tabindex="1">Okay</div>
+</div>
+</div><div class="detailViewWithActivityFeedBase template">
+<div class="background hide-print"></div>
+<div class="dialog">
+<div class="header flex">
+</div>
+<div class="detailViewWithActivityFeedBaseLeft">
+<div class="detailViewContainer">
+<div class="detailView">
+<div class="scrollContainer"></div>
+</div>
+</div>
+</div>
+<div class="detailViewWithActivityFeedBaseRight">
+<div class="rowLevelActivityFeed"></div>
+</div>
+</div>
+</div><div class="richTextboxContainer template">
+<div class="richTextbox light-scrollbar" contenteditable="true"></div>
+<div class="mentionIcon absolute bottom-0 right-0 p1 mr-half quieter link-unquiet strong pointer">@</div>
+<ul class="mentionSuggest hmenu hdropdown absolute stroked rounded white">
+<li class="template" menuitemvalue="{userId}">
+<div class="userIconContainer"></div><span class="name">{userName}</span>
+</li>
+</ul>
+<input class="editableFix" tabindex="-1">
+<div class="urlMenu hbubblemenu hdropdown">
+<div class="flex items-center">
+<div class="flex items-center mr1 quiet">
+<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" class="icon" style="shape-rendering: geometricPrecision;">
+<path fill-rule="evenodd" fill="currentColor" d="M2,8.00003 C2.55,8.00003 3,8.45003 3,9 C3,9.55003 2.55,10 2,10 L1,10 C0.45,10 0,9.55003 0,9 L0,4.00003 C0,3.86203 0.028,3.73103 0.079,3.61203 C0.18,3.37303 0.373,3.18003 0.612,3.07903 C0.731,3.02803 0.862,3.00003 1,3.00003 L7,3.00003 C7.138,3.00003 7.269,3.02803 7.388,3.07903 C7.627,3.18003 7.82,3.37303 7.921,3.61203 C7.972,3.73103 8,3.86203 8,4.00003 L8,6.00003 C8,6.55003 7.55,7.00003 7,7.00003 C6.45,7.00003 6,6.55003 6,6.00003 L6,5 L2,5 L2,8.00003 Z M11.9211,3.61173 C11.9721,3.73173 12.0001,3.86273 12.0001,3.99973 L12.0001,8.99973 C12.0001,9.54973 11.5501,9.99973 11.0001,9.99973 L5.0001,9.99973 C4.4501,9.99973 4.0001,9.54973 4.0001,8.99973 L4.0001,6.49973 C4.0001,6.22473 4.2251,5.99973 4.5001,5.99973 C4.7751,5.99973 5.0001,6.22473 5.0001,6.49973 L5.0001,7.99973 L10.0001,7.99973 L10.0001,4.99973 C9.4501,4.99973 9.0001,4.54973 9.0001,3.99973 C9.0001,3.44973 9.4501,2.99973 10.0001,2.99973 L11.0001,2.99973 C11.1371,2.99973 11.2691,3.02773 11.3881,3.07873 C11.6271,3.18073 11.8191,3.37273 11.9211,3.61173 Z">
+</path>
+</svg></div>
+<div class="linkContainer"></div>
+</div>
+</div>
+</div><div class="attachmentViewer template">
+<div class="attachmentViewerContents">
+<div class="filename"></div>
+<div class="close absolute p2 top-0 right-0 text-white pointer link-quiet"></div>
+<div class="loading absolute p2 top-0 left-0"></div><div class="leftArrow">
+<i class="icon-angle-left"></i>
+</div><div class="rightArrow">
+<i class="icon-angle-right"></i>
+</div><div class="attachmentContainer"></div><div class="bottomBar">
+<div class="number"></div>
+<div class="thumbnails"></div>
+<div class="flex items-center absolute bottom-0 right-0 p2">
+<div class="download pointer link-quiet ml2" title="Download attachment"></div>
+<div class="rename pointer link-quiet ml2" title="Rename attachment"></div>
+<div class="remove pointer link-quiet ml2" title="Remove attachment"></div>
+</div>
+</div>
+</div>
+</div><div class="formDesignerView template"><div class="availableFormFieldContainer">
+<div class="availableFormFieldsAndAllButtons">
+<div class="flex items-center justify-between">
+<div>Fields</div>
+<div class="flex items-center small">
+<div class="removeAll quiet understroke link link-unquiet pointer">remove all</div>
+<div class="addAll ml2 quiet understroke link link-unquiet pointer">add all</div>
+</div>
+</div>
+<div class="availableFormFields"></div>
+</div>
+<div class="dropToRemoveContainer"><div></div></div>
+</div><div class="formContainer"><div class="form">
+<div class="formHeaderContainer baymax rounded-big-top overflow-hidden"></div>
+<div class="px3">
+<div class="mx-auto pt3 col-12" style="max-width: 512px;">
+<div class="formFieldContainer"></div>
+<div class="formSubmitButtonContainer"></div>
+<div class="formAirtableBrandingContainer"></div>
+</div>
+</div>
+</div><div class="formFooterContainer"></div>
+</div><div class="unavailableInMobileSharedApplicationOverlay absolute all-0">
+<div class="message absolute all-0">
+Forms are not available in mobile shared bases.
+</div>
+</div>
+</div><div id="globalAlertContainer" class="baymax"></div>
+<div id="modalContainer"></div>
+</div><div id="embedBottomBarContainer"><div data-reactroot="" class="flex justify-between baymax" style="height: 100%;"><a href="https://airtable.com/?utm_source=airtable_embedded_view" target="_blank" rel="noopener noreferrer" class="flex flex-none items-center px1 pointer link-quiet"><svg xmlns="http://www.w3.org/2000/svg" width="68" height="14.8" viewBox="0 0 680 148" class="xs-hide" style="shape-rendering: geometricprecision;"><g><path fill="rgb(51, 51, 51)" d="M272.8495 85.1981L261.0145 53.2891C260.5305 51.9841 258.6855 51.9841 258.2015 53.2891L246.3655 85.1981C246.0025 86.1781 246.7275 87.2201 247.7725 87.2201L271.4435 87.2201C272.4885 87.2201 273.2125 86.1781 272.8495 85.1981M278.3175 103.1321L240.8985 103.1321C240.2705 103.1321 239.7095 103.5221 239.4915 104.1101L232.1245 123.9641C231.9065 124.5521 231.3455 124.9421 230.7185 124.9421L214.5015 124.9421C213.4395 124.9421 212.7135 123.8691 213.1095 122.8841L250.4505 29.8621C250.6785 29.2941 251.2295 28.9211 251.8425 28.9211L267.3725 28.9211C267.9845 28.9211 268.5365 29.2941 268.7645 29.8621L306.1055 122.8831C306.5015 123.8691 305.7755 124.9421 304.7135 124.9421L288.4965 124.9421C287.8695 124.9421 287.3085 124.5521 287.0905 123.9641L279.7235 104.1101C279.5055 103.5221 278.9445 103.1321 278.3175 103.1321M313.7043 61.5684L327.5763 61.5684C328.4053 61.5684 329.0763 62.2404 329.0763 63.0684L329.0763 123.4424C329.0763 124.2704 328.4053 124.9424 327.5763 124.9424L313.7043 124.9424C312.8763 124.9424 312.2043 124.2704 312.2043 123.4424L312.2043 63.0684C312.2043 62.2404 312.8763 61.5684 313.7043 61.5684M379.6682 76.2549C379.6682 77.0829 378.9962 77.7549 378.1682 77.7549L377.7482 77.7549C370.8892 77.7549 365.8582 79.4009 362.6582 82.6929 359.4562 85.9849 357.8572 91.4269 357.8572 99.0169L357.8572 123.4429C357.8572 124.2709 357.1862 124.9429 356.3572 124.9429L342.6222 124.9429C341.7942 124.9429 341.1222 124.2709 341.1222 123.4429L341.1222 63.0679C341.1222 62.2399 341.7942 61.5679 342.6222 61.5679L356.2202 61.5679C357.0492 61.5679 357.7202 62.2399 357.7202 63.0679L357.7202 75.0109 357.9952 75.0109C359.6412 70.0729 362.2472 66.2799 365.8142 63.6259 369.3802 60.9749 373.7702 59.6479 378.9822 59.6479L379.6682 59.6479 379.6682 76.2549zM417.5974 75.6973C416.7694 75.6973 416.0974 76.3693 416.0974 77.1973L416.0974 102.3093C416.0974 104.8703 416.5984 106.6983 417.6064 107.7963 418.6114 108.8933 420.3494 109.4423 422.8184 109.4423L424.1994 109.4423C425.0274 109.4423 425.6994 110.1133 425.6994 110.9423L425.6994 123.5793C425.6994 124.4083 425.0274 125.0793 424.1994 125.0793L418.2914 125.0793C412.1644 125.0793 407.4554 123.5023 404.1634 120.3473 400.8704 117.1923 399.2244 112.5073 399.2244 106.2873L399.2244 77.1973C399.2244 76.3693 398.5534 75.6973 397.7244 75.6973L389.0654 75.6973C388.2364 75.6973 387.5654 75.0253 387.5654 74.1973L387.5654 63.0683C387.5654 62.2403 388.2364 61.5683 389.0654 61.5683L397.7244 61.5683C398.5534 61.5683 399.2244 60.8973 399.2244 60.0683L399.2244 37.6913C399.2244 36.8633 399.8964 36.1913 400.7244 36.1913L414.5974 36.1913C415.4254 36.1913 416.0974 36.8633 416.0974 37.6913L416.0974 60.0683C416.0974 60.8973 416.7694 61.5683 417.5974 61.5683L427.6284 61.5683C428.4574 61.5683 429.1284 62.2403 429.1284 63.0683L429.1284 74.1973C429.1284 75.0253 428.4574 75.6973 427.6284 75.6973L417.5974 75.6973zM481.1191 106.1499C484.2741 102.8579 485.8511 98.5599 485.8511 93.2549 485.8511 87.9529 484.2741 83.6529 481.1191 80.3609 477.9641 77.0689 473.8251 75.4229 468.7041 75.4229 463.5821 75.4229 459.4461 77.0689 456.2901 80.3609 453.1361 83.6529 451.5581 87.9529 451.5581 93.2549 451.5581 98.5599 453.1361 102.8579 456.2901 106.1499 459.4461 109.4419 463.5821 111.0879 468.7041 111.0879 473.8251 111.0879 477.9641 109.4419 481.1191 106.1499M449.0891 123.0219C444.4251 120.3709 440.7431 116.5059 438.0471 111.4309 435.3481 106.3559 434.0001 100.2979 434.0001 93.2549 434.0001 86.2149 435.3481 80.1549 438.0471 75.0799 440.7431 70.0049 444.4251 66.1429 449.0891 63.4889 453.7531 60.8369 458.8731 59.5109 464.4521 59.5109 469.3901 59.5109 473.6191 60.4709 477.1411 62.3919 480.6601 64.3119 483.4721 67.0099 485.5771 70.4849L485.8511 70.4849 485.8511 63.0679C485.8511 62.2399 486.5231 61.5679 487.3511 61.5679L501.0861 61.5679C501.9151 61.5679 502.5861 62.2399 502.5861 63.0679L502.5861 123.4419C502.5861 124.2709 501.9151 124.9419 501.0861 124.9419L487.3511 124.9419C486.5231 124.9419 485.8511 124.2709 485.8511 123.4419L485.8511 116.0259 485.5771 116.0259C483.4721 119.5029 480.6601 122.1989 477.1411 124.1189 473.6191 126.0399 469.3901 126.9999 464.4521 126.9999 458.8731 126.9999 453.7531 125.6729 449.0891 123.0219M559.709 106.1499C562.864 102.8579 564.441 98.5599 564.441 93.2549 564.441 87.9529 562.864 83.6529 559.709 80.3609 556.555 77.0689 552.416 75.4229 547.295 75.4229 542.173 75.4229 538.036 77.0689 534.881 80.3609 531.727 83.6529 530.148 87.9529 530.148 93.2549 530.148 98.5599 531.727 102.8579 534.881 106.1499 538.036 109.4419 542.173 111.0879 547.295 111.0879 552.416 111.0879 556.555 109.4419 559.709 106.1499M538.859 124.1189C535.338 122.1989 532.525 119.5029 530.423 116.0259L530.148 116.0259 530.148 123.4419C530.148 124.2709 529.477 124.9419 528.648 124.9419L514.776 124.9419C513.948 124.9419 513.276 124.2709 513.276 123.4419L513.276 30.4209C513.276 29.5929 513.948 28.9209 514.776 28.9209L528.648 28.9209C529.477 28.9209 530.148 29.5929 530.148 30.4209L530.148 70.4849 530.423 70.4849C532.525 67.0099 535.338 64.3119 538.859 62.3919 542.379 60.4709 546.609 59.5109 551.548 59.5109 557.125 59.5109 562.247 60.8369 566.911 63.4889 571.575 66.1429 575.255 70.0049 577.953 75.0799 580.649 80.1549 582 86.2149 582 93.2549 582 100.2979 580.649 106.3559 577.953 111.4309 575.255 116.5059 571.575 120.3709 566.911 123.0219 562.247 125.6729 557.125 126.9999 551.548 126.9999 546.609 126.9999 542.379 126.0399 538.859 124.1189M605.3721 124.9424L591.5001 124.9424C590.6711 124.9424 590.0001 124.2704 590.0001 123.4424L590.0001 30.4214C590.0001 29.5934 590.6711 28.9214 591.5001 28.9214L605.3721 28.9214C606.2001 28.9214 606.8721 29.5934 606.8721 30.4214L606.8721 123.4424C606.8721 124.2704 606.2001 124.9424 605.3721 124.9424M638.0937 76.2461C635.7937 78.0401 634.2407 80.6301 633.4367 84.0181 633.2157 84.9521 633.9447 85.8481 634.9047 85.8481L661.3047 85.8481C662.2207 85.8481 662.9407 85.0281 662.7927 84.1241 662.2647 80.9191 660.8907 78.3631 658.6697 76.4521 656.0637 74.2121 652.6557 73.0911 648.4497 73.0911 644.2427 73.0911 640.7897 74.1431 638.0937 76.2461M671.9067 68.3581C677.3017 74.2571 679.9997 82.6031 679.9997 93.3921L679.9997 95.1841C679.9997 96.0131 679.3287 96.6841 678.4997 96.6841L634.3957 96.6841C633.4637 96.6841 632.7497 97.5321 632.9107 98.4501 633.6157 102.4581 635.3887 105.6421 638.2307 108.0011 641.4757 110.7001 645.5697 112.0481 650.5077 112.0481 656.8827 112.0481 662.7837 109.5601 668.2097 104.5831 668.8727 103.9751 669.9237 104.1041 670.4377 104.8421L677.1817 114.5221C677.6157 115.1451 677.5237 116.0051 676.9517 116.5051 673.6437 119.4011 669.9947 121.8261 666.0077 123.7761 661.6187 125.9241 656.4507 127.0001 650.5077 127.0001 643.6497 127.0001 637.6577 125.6041 632.5377 122.8161 627.4147 120.0281 623.4377 116.0951 620.6047 111.0191 617.7687 105.9441 616.3517 100.0691 616.3517 93.3921 616.3517 86.7181 617.7237 80.8201 620.4667 75.6971 623.2097 70.5771 627.0507 66.5991 631.9897 63.7631 636.9277 60.9301 642.6887 59.5111 649.2737 59.5111 658.9647 59.5111 666.5097 62.4601 671.9067 68.3581M330.8866 39.2473C330.8866 44.9063 326.2996 49.4933 320.6406 49.4933 314.9816 49.4933 310.3936 44.9063 310.3936 39.2473 310.3936 33.5883 314.9816 29.0013 320.6406 29.0013 326.2996 29.0013 330.8866 33.5883 330.8866 39.2473"></path><path fill="rgb(252, 180, 0)" d="M78.9992,1.8675 L13.0402,29.1605 C9.3722,30.6785 9.4102,35.8885 13.1012,37.3515 L79.3362,63.6175 C85.1562,65.9255 91.6372,65.9255 97.4562,63.6175 L163.6922,37.3515 C167.3822,35.8885 167.4212,30.6785 163.7522,29.1605 L97.7942,1.8675 C91.7762,-0.6225 85.0162,-0.6225 78.9992,1.8675"></path><path fill="rgb(24, 191, 255)" d="M94.2726,77.9608 L94.2726,143.5768 C94.2726,146.6978 97.4196,148.8348 100.3206,147.6848 L174.1266,119.0368 C175.8116,118.3688 176.9166,116.7408 176.9166,114.9288 L176.9166,49.3128 C176.9166,46.1918 173.7696,44.0548 170.8686,45.2048 L97.0626,73.8528 C95.3786,74.5208 94.2726,76.1488 94.2726,77.9608"></path><path fill="rgb(248, 43, 96)" d="M77.0384,81.3464 L55.1344,91.9224 L52.9104,92.9974 L6.6724,115.1524 C3.7414,116.5664 0.0004,114.4304 0.0004,111.1744 L0.0004,49.5884 C0.0004,48.4104 0.6044,47.3934 1.4144,46.6274 C1.7524,46.2884 2.1354,46.0094 2.5334,45.7884 C3.6384,45.1254 5.2144,44.9484 6.5544,45.4784 L76.6704,73.2594 C80.2344,74.6734 80.5144,79.6674 77.0384,81.3464"></path><path fill="rgba(0, 0, 0, 0.25)" d="M77.0384,81.3464 L55.1344,91.9224 L1.4144,46.6274 C1.7524,46.2884 2.1354,46.0094 2.5334,45.7884 C3.6384,45.1254 5.2144,44.9484 6.5544,45.4784 L76.6704,73.2594 C80.2344,74.6734 80.5144,79.6674 77.0384,81.3464"></path></g></svg><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 200 170" class="sm-hide md-hide lg-hide" style="shape-rendering: geometricprecision;"><g><path fill="rgb(252, 180, 0)" d="M90.0389,12.3675 L24.0799,39.6605 C20.4119,41.1785 20.4499,46.3885 24.1409,47.8515 L90.3759,74.1175 C96.1959,76.4255 102.6769,76.4255 108.4959,74.1175 L174.7319,47.8515 C178.4219,46.3885 178.4609,41.1785 174.7919,39.6605 L108.8339,12.3675 C102.8159,9.8775 96.0559,9.8775 90.0389,12.3675"></path><path fill="rgb(24, 191, 255)" d="M105.3122,88.4608 L105.3122,154.0768 C105.3122,157.1978 108.4592,159.3348 111.3602,158.1848 L185.1662,129.5368 C186.8512,128.8688 187.9562,127.2408 187.9562,125.4288 L187.9562,59.8128 C187.9562,56.6918 184.8092,54.5548 181.9082,55.7048 L108.1022,84.3528 C106.4182,85.0208 105.3122,86.6488 105.3122,88.4608"></path><path fill="rgb(248, 43, 96)" d="M88.0781,91.8464 L66.1741,102.4224 L63.9501,103.4974 L17.7121,125.6524 C14.7811,127.0664 11.0401,124.9304 11.0401,121.6744 L11.0401,60.0884 C11.0401,58.9104 11.6441,57.8934 12.4541,57.1274 C12.7921,56.7884 13.1751,56.5094 13.5731,56.2884 C14.6781,55.6254 16.2541,55.4484 17.5941,55.9784 L87.7101,83.7594 C91.2741,85.1734 91.5541,90.1674 88.0781,91.8464"></path><path fill="rgba(0, 0, 0, 0.25)" d="M88.0781,91.8464 L66.1741,102.4224 L12.4541,57.1274 C12.7921,56.7884 13.1751,56.5094 13.5731,56.2884 C14.6781,55.6254 16.2541,55.4484 17.5941,55.9784 L87.7101,83.7594 C91.2741,85.1734 91.5541,90.1674 88.0781,91.8464"></path></g></svg></a><div class="flex flex-auto flex-reverse items-center small"><a class="flex-inline items-center quiet link-unquiet pointer px1"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" class="flex-none" style="shape-rendering: geometricprecision;"><path fill-rule="evenodd" class="" fill="currentColor" d="M4.77546101,10.4553613 L1.81474478,10.8783208 C1.25439084,10.9583713 0.87938524,10.5736845 0.958225649,10.0218016 L1.38118511,7.06108542 C1.45982823,6.51058357 1.83916177,6.38790899 2.22968611,6.77843328 L2.93679297,7.48554006 L4.10581974,6.3165134 C4.49903533,5.92329779 5.12937282,5.9261252 5.51989706,6.31664944 C5.91314397,6.70989635 5.91048225,7.3402777 5.52003317,7.73072683 L4.35100654,8.89975362 L5.05811323,9.6068604 C5.45136014,10.0001074 5.32208977,10.3772715 4.77546101,10.4553613 Z M7.10137856,1.3810729 L10.0620948,0.958113443 C10.6224487,0.87806288 10.9974543,1.26274971 10.9186139,1.81463257 L10.4956545,4.7753488 C10.4170113,5.32585066 10.0376778,5.44852523 9.64715346,5.05800094 L8.94004659,4.35089416 L7.45430822,5.83663252 C7.06109263,6.22984813 6.43075515,6.22702073 6.0402309,5.83649648 C5.64698399,5.44324957 5.64964572,4.81286823 6.04009479,4.42241909 L7.52583303,2.9366806 L6.81872633,2.22957382 C6.42547942,1.83632686 6.5547498,1.45916273 7.10137856,1.3810729 Z"></path></svg><div class="ml-half truncate flex-auto">View larger version</div></a><a class="flex-inline items-center quiet link-unquiet pointer px1"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" class="flex-none" style="shape-rendering: geometricprecision;"><path fill-rule="evenodd" class="" fill="currentColor" d="M6,0 C9.314,0 12,2.686 12,6 C12,9.314 9.314,12 6,12 C2.686,12 0,9.314 0,6 C0,2.686 2.686,0 6,0 Z M6,1.5 C3.519,1.5 1.5,3.519 1.5,6 C1.5,8.481 3.519,10.5 6,10.5 C8.481,10.5 10.5,8.481 10.5,6 C10.5,3.519 8.481,1.5 6,1.5 Z M8,7.5 C5.99394614,10 6.31105758,9.60838675 6.31105758,9.60838675 C6.13260341,9.8323822 5.86007406,9.82466878 5.686909,9.60838675 C5.686909,9.60838675 6,10 4,7.5 C3.53501573,6.91876966 3.5,6.49999994 4,6.5 L5,6.5 L5,3.5 C4.99999999,2.94390917 5.44431696,2.5 6.00045207,2.5 C6.55658718,2.5 6.99999996,2.94782158 7,3.5 L7,6.5 L8,6.5 C8.5,6.49999994 8.46743893,6.91746463 8,7.5 Z"></path></svg><div class="ml-half truncate flex-auto">Download CSV</div></a></div></div></div>
+<div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>
