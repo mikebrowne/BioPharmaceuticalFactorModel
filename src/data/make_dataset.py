@@ -1,30 +1,42 @@
-# -*- coding: utf-8 -*-
-import click
-import logging
-from pathlib import Path
-from dotenv import find_dotenv, load_dotenv
+'''
+
+make_dataset.py
+
+Functions for importing data and sending the data through the feature engineering
+pipeline.
+
+    Functions Include:
+        * get_raw_data
+
+'''
+import os
+import sys
+import pandas as pd
+
+DATA_PATH = "../../data"
 
 
-@click.command()
-@click.argument('input_filepath', type=click.Path(exists=True))
-@click.argument('output_filepath', type=click.Path())
-def main(input_filepath, output_filepath):
-    """ Runs data processing scripts to turn raw data from (../raw) into
-        cleaned data ready to be analyzed (saved in ../processed).
-    """
-    logger = logging.getLogger(__name__)
-    logger.info('making final data set from raw data')
+def get_raw_data():
+    '''
+    Returns the raw data:
+        * business wire scraper results
+        * watchlist of pharmaceutical related companies (since Feb 26, 2019
+        * stock prices for the companies on the watchlist
+    '''
+    file_name_1 = "business_wire_scrape_results.csv"
+    file_name_2 = "watchlist_nasdaq_feb262019.csv"
+    file_name_3 = "stock_prices_asof_2019-06-21.csv"
+
+    file_1 = pd.read_csv(os.path.join(DATA_PATH, "raw", file_name_1), index_col=0)
+    file_2 = pd.read_csv(os.path.join(DATA_PATH, "raw", file_name_2), index_col=0)
+    file_3 = pd.read_csv(os.path.join(DATA_PATH, "raw", file_name_3), index_col=0)
+
+    return file_1, file_2, file_3
+
+
+def main():
+    pass
 
 
 if __name__ == '__main__':
-    log_fmt = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-    logging.basicConfig(level=logging.INFO, format=log_fmt)
-
-    # not used in this stub but often useful for finding various files
-    project_dir = Path(__file__).resolve().parents[2]
-
-    # find .env automagically by walking up directories until it's found, then
-    # load up the .env entries as environment variables
-    load_dotenv(find_dotenv())
-
     main()
