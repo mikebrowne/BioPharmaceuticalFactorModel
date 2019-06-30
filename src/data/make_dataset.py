@@ -13,6 +13,9 @@ import os
 import sys
 import pandas as pd
 
+sys.path.append("../features")
+from nlp_functions import remove_non_english_articles
+
 DATA_PATH = "../../data"
 
 
@@ -34,8 +37,46 @@ def get_raw_data():
     return file_1, file_2, file_3
 
 
+def clean_and_open_busines_wire_data_01(df, to_save=False):
+    '''Cleans Business Wire data for First Data Exploration'''
+
+    file_name = "business_wire_scrape_results-clean_01.csv"
+    folder_path = "../../data/interim"
+
+    if file_name in os.listdir():
+        temp_df = pd.read_csv(os.path.join(folder_path, file_name), index_col=0)
+        if temp_df.shape == df.shape:
+            return temp_df
+
+    # 0: Create a copy of the data
+    clinical_trial_df = df.copy()
+
+    # 1: Remove NaN
+    clinical_trial_df.dropna(inplace=True)
+
+    # 2: Remove non-English articles
+    clinical_trial_df = remove_non_english_articles(clinical_trial_df)
+
+    # 3: Set all strings to lower case in "title" and "article" columns
+    clinical_trial_df.article = clinical_trial_df.article.apply(str.lower)
+    clinical_trial_df.title = clinical_trial_df.title.apply(str.lower)
+
+    # 4: Drop "link" column
+    clinical_trial_df.drop("link", inplace=True, axis=1)
+
+    # 5: Ensure date is a datetime object
+    clinical_trial_df.time = pd.to_datetime(clinical_trial_df.time)
+
+    if to_save:
+        clinical_trial_df.to_csv(os.path.join(folder_path, file_name))
+
+    return clinical_trial_df
+
+
 def main():
-    pass
+    bus_wire_raw, _, _ = get_raw_data()
+    temp_df = clean_and_open_busines_wire_data_01(bus_wire_raw, to_save=True)
+    print(temp_df)
 
 
 if __name__ == '__main__':
