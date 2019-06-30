@@ -3,6 +3,13 @@ Data Exploration
 
 Exploring clinical trial news releases for factors that could potentially affect the prices of the company's corresponding stock prices.
 
+With trading and investing, a main objective is to find opportunities that have a high
+probabiliyt of giving large risk adjusted returns. Bio Pharmaceutical companies often give
+opportunities of very high returns. The two main issues are of finding when to invest and also of risk.
+
+The exploration in this notebook is to explicitly look for ways to find those opportunities that give a
+high risk-adjusted reward with high precision.
+
 Project Organization
 ------------
 
