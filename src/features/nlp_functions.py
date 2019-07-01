@@ -6,10 +6,17 @@ A collection of functions and classes to assist in NLP exploration and modelling
 
     Functions Include:
         * remove_non_english_article
+        * remove_white_spaces
+        * remove_non_alphanumeric
+        * remove_numbers
+        * remove_stop_words
 
 '''
 
+import re
+
 from langdetect import detect
+from nltk.corpus import stopwords
 
 
 def remove_non_english_articles(df):
@@ -22,3 +29,38 @@ def remove_non_english_articles(df):
             return None
 
     return df.loc[df.article.apply(detect_subsample) == "en"]
+
+
+def remove_white_spaces(text):
+    '''Removes all white spaces that are not a single space between words.'''
+    replace = {
+        ord('\f'): ' ',
+        ord('\t'): ' ',
+        ord('\n'): ' ',
+        ord('\r'): None,
+    }
+
+    return text.translate(replace)
+
+
+def remove_non_alphanumeric(text):
+    # Not sure why I can't get RegEx to work here for the full article so will implement a work around and fix later
+    return " ".join([re.sub(r'\W+', ' ', word_token) for word_token in text.split(" ")])
+
+
+def remove_numbers(text):
+    return re.sub('[0-9]+', '', text)
+
+
+def remove_stop_words(text):
+    stop_words = stopwords.words('english')
+    return " ".join([word for word in text.split(" ") if word not in stop_words])
+
+
+def remove_company_name(text, company_names):
+    set_of_words = set()
+    for name in company_names:
+        for sub_name in name.split(" "):
+            set_of_words.add(sub_name.lower())
+
+    return " ".join([word for word in text.split(" ") if word not in set_of_words])
