@@ -8,7 +8,8 @@ Contains functions that will assist in creating features but do not necessarily 
         * GetPrices
 
 '''
-from pandas import Series
+import pandas as pd
+import numpy as np
 
 
 class GetPrices:
@@ -52,7 +53,7 @@ class GetPrices:
 
     def add_prices_to_frame(self):
         '''Builds a dataframe containing the prices with the index from the articles'''
-        new_data = self.article_data_frame.apply(lambda x: Series(self.get_price(x)), axis=1)
+        new_data = self.article_data_frame.apply(lambda x: pd.Series(self.get_price(x)), axis=1)
 
         new_columns = ["P_{}".format(i) for i in range(self.n_window)]
 
@@ -63,3 +64,26 @@ class GetPrices:
         else:
             new_data.columns = new_columns
             return new_data
+
+
+def compute_return_window(article_df, prices_df, n_window=30):
+    # Define percent return function here. Will move outside if it is needed for other functions
+    def percent_return(value_matrix, i, j):
+        return (value_matrix[j][i] / value_matrix[j][0]) - 1
+
+    # Get the stock prices for "n" days following each event
+    price_window = GetPrices(
+        article_df,
+        prices_df,
+        n_window=n_window
+    ).add_prices_to_frame()
+
+    return_values = np.array([
+        np.array([
+            percent_return(price_window.values, i, j) for i in range(1, price_window.shape[1])
+        ]) for j in range(price_window.shape[0])
+    ])
+
+    cols = ["R_{}".format(i) for i in range(return_values.shape[1])]
+
+    return pd.DataFrame(return_values, index=price_window.index, columns=cols)
