@@ -17,6 +17,7 @@ import re
 
 from langdetect import detect
 from nltk.corpus import stopwords
+from nltk.stem import WordNetLemmatizer
 
 
 def remove_non_english_articles(df):
@@ -64,3 +65,16 @@ def remove_company_name(text, company_names):
             set_of_words.add(sub_name.lower())
 
     return " ".join([word for word in text.split(" ") if word not in set_of_words])
+
+
+def lemmatize_text(text):
+    lemmetizer = WordNetLemmatizer()
+    tokens = text.split(" ")
+    tokens = [lemmetizer.lemmatize(word) for word in tokens]
+    tokens = [lemmetizer.lemmatize(word, pos="v") for word in tokens]
+    return " ".join(tokens)
+
+
+if __name__=="__main__":
+    print(lemmatize_text("accounts"))
+    print(lemmatize_text("announces"))
