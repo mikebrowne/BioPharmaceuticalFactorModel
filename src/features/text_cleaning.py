@@ -1,6 +1,6 @@
 '''
 
-nlp_functions.py
+text_cleaning.py
 
 A collection of functions and classes to assist in NLP exploration and modelling.
 
@@ -18,6 +18,8 @@ import re
 from langdetect import detect
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
+
+from pandas import Series
 
 
 def remove_non_english_articles(df):
@@ -73,6 +75,15 @@ def lemmatize_text(text):
     tokens = [lemmetizer.lemmatize(word) for word in tokens]
     tokens = [lemmetizer.lemmatize(word, pos="v") for word in tokens]
     return " ".join(tokens)
+
+
+def clean_text(df, column_name):
+    df[column_name] = df[column_name].apply(remove_white_spaces)
+    df[column_name] = df[column_name].apply(remove_non_alphanumeric)
+    df[column_name] = df[column_name].apply(remove_numbers)
+    df[column_name] = df[column_name].apply(remove_stop_words)
+    df[column_name] = df[column_name].apply(lemmatize_text)
+    return df
 
 
 if __name__=="__main__":

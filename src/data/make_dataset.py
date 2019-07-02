@@ -13,7 +13,7 @@ import os
 import sys
 import pandas as pd
 
-from src.features.nlp_functions import remove_non_english_articles
+from src.features.text_cleaning import remove_non_english_articles
 
 DATA_PATH = os.path.join("..", "..", "data")
 
