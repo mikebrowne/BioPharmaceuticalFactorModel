@@ -76,6 +76,38 @@ def clean_and_open_business_wire_data_01(df, to_save=False):
     return clinical_trial_df
 
 
+def clean_and_format_watchlist(watchlist_df, company_tickers):
+
+    # 1: Get a list of the unique companies that have scraped article data
+    unique_companies = company_tickers
+
+    # 2: Keep only the companies from the list
+    watchlist_df = watchlist_df.loc[watchlist_df.Ticker.isin(unique_companies)]
+
+    # 3: Change column names to all lowercase
+    watchlist_df.columns = ["ticker", "marketcap", "sector", "exchange"]
+
+    return watchlist_df
+
+
+def clean_and_format_prices(price_df, company_tickers):
+    # 0: Make a copy of the stock prices here
+    prices_df = price_df
+    print("Original size: ", prices_df.shape)
+
+    # 1: Reduce the new copy of prices to only the companies under our scope
+    prices_df = prices_df[company_tickers]
+    print("Final size: ", prices_df.shape)
+
+    # 2: Sort by date
+    prices_df.sort_index(inplace=True)
+
+    # 3: Ensure index is datetime object
+    prices_df.index = pd.to_datetime(prices_df.index)
+
+    return prices_df
+
+
 def main():
     bus_wire_raw, _, _ = get_raw_data()
     temp_df = clean_and_open_business_wire_data_01(bus_wire_raw, to_save=True)
