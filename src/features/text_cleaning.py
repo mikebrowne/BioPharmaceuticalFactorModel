@@ -78,11 +78,13 @@ def lemmatize_text(text):
 
 
 def clean_text(df, column_name):
-    df[column_name] = df[column_name].apply(remove_white_spaces)
-    df[column_name] = df[column_name].apply(remove_non_alphanumeric)
-    df[column_name] = df[column_name].apply(remove_numbers)
-    df[column_name] = df[column_name].apply(remove_stop_words)
-    df[column_name] = df[column_name].apply(lemmatize_text)
+    df[column_name] = (
+        df[column_name].apply(remove_white_spaces)
+            .apply(remove_non_alphanumeric)
+            .apply(remove_numbers)
+            .apply(remove_stop_words)
+            .apply(lemmatize_text)
+    )
     return df
 
 

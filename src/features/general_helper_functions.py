@@ -44,7 +44,7 @@ class GetPrices:
             # event date, then get the following n_window days using iloc
             index_number = self.price_data_frame.index.tolist().index(time)
 
-            vals = self.price_data_frame[ticker].iloc[index_number: index_number + self.n_window].values
+            vals = self.price_data_frame[ticker].iloc[index_number: index_number + self.n_window + 1].values
 
             return vals
         except Exception as e:
@@ -54,8 +54,9 @@ class GetPrices:
     def add_prices_to_frame(self):
         '''Builds a dataframe containing the prices with the index from the articles'''
         new_data = self.article_data_frame.apply(lambda x: pd.Series(self.get_price(x)), axis=1)
+        ind_ = self.article_data_frame.index
 
-        new_columns = ["P_{}".format(i) for i in range(self.n_window)]
+        new_columns = ["P_{}".format(i) for i in range(self.n_window + 1)]
 
         if self.inplace:
             self.article_data_frame[new_columns] = new_data
@@ -63,6 +64,7 @@ class GetPrices:
             # return self.article_data_frame
         else:
             new_data.columns = new_columns
+            new_data.set_index(ind_)
             return new_data
 
 
@@ -84,6 +86,6 @@ def compute_return_window(article_df, prices_df, n_window=30):
         ]) for j in range(price_window.shape[0])
     ])
 
-    cols = ["R_{}".format(i) for i in range(return_values.shape[1])]
+    cols = ["R_{}".format(i + 1) for i in range(return_values.shape[1])]
 
-    return pd.DataFrame(return_values, index=price_window.index, columns=cols)
+    return pd.DataFrame(return_values, index=article_df.index, columns=cols)
