@@ -7,7 +7,8 @@ processing. See "04-KeywordAsAFactor_FeaturePipeline" for more information.
 
 '''
 
-from keyword_features_low_level_functions import *
+from src.features.keyword_features_low_level_functions import *
+from src.data.make_dataset import clean_and_open_business_wire_data_01, get_raw_data
 
 # -------------------
 # Full Pipeline
@@ -31,6 +32,8 @@ class FeatureCreationPipeline:
         x_post_feat_red = self.feat_engineer.fit_transform(x_pre_feat_eng)
 
         self.x = self.feature_reducer.fit_transform([x_pre_feat_eng, x_post_feat_red], cut_off)
+
+        return self.x
 
 
 # -------------------
@@ -63,7 +66,7 @@ class FeatureEngineering:
         self.new_feature_list = []
 
     def fit(self, x):
-        self.new_feature_list = engineer_features(x.columns.tolist(), max_n)
+        self.new_feature_list = engineer_features(x.columns.tolist(), self.max_n_grams)
 
     def transform(self, x):
         return extract_new_feature_vectors(self.new_feature_list, x)
@@ -99,28 +102,20 @@ class FeatureReduction:
             self.fit(x, cut_off)
             return self.transform_individual(x)
 
-# -------------------
-# Low Level Functions
-# -------------------
 
-# 1. CLEAN DATA
-def preprocess_text_data(articles_full, watchlist, column_name="title"):
-    unique_companies = articles_full.ticker.unique()
+if __name__ == "__main__":
 
-    # General text cleaning
-    cleaned_text = clean_text(articles_full, column_name)[column_name]
+    _, watchlist_raw, stock_prices_raw = get_raw_data()
+    articles = clean_and_open_business_wire_data_01(None)
 
-    # Remove company name from title
-    company_names = watchlist.loc[watchlist.Ticker.isin(unique_companies)].index.tolist()
-    return cleaned_text.apply(remove_company_name, args=(company_names,))
+    watchlist = watchlist_raw.copy()
 
+    feature_creation = FeatureCreationPipeline()
 
-# 2. FEATURE EXTRACTION
+    sample_articles = articles.sample(1000)
 
+    X = feature_creation.fit_transform(sample_articles, watchlist, cut_off=0.01)
 
-
-# 3. FEATURE ENGINEERING
-
-
-
-# 4. FEATURE REDUCTION
+    print("Results\n", "-"*20)
+    print(X.shape, "\n")
+    print(X.head())

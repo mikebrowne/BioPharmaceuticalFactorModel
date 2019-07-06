@@ -73,6 +73,8 @@ def clean_and_open_business_wire_data_01(df, to_save=False):
     if to_save:
         clinical_trial_df.to_csv(os.path.join(folder_path, file_name))
 
+    clinical_trial_df.reset_index(inplace=True)
+
     return clinical_trial_df
 
 
