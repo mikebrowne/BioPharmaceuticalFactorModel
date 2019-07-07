@@ -69,6 +69,10 @@ def remove_company_name(text, company_names):
     return " ".join([word for word in text.split(" ") if word not in set_of_words])
 
 
+def remove_short_words(text, min_len=4):
+    return " ".join([word for word in text.split(" ") if len(word) >= min_len])
+
+
 def lemmatize_text(text):
     lemmetizer = WordNetLemmatizer()
     tokens = text.split(" ")
