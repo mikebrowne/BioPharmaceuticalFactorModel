@@ -87,7 +87,6 @@ def clean_text(df, column_name):
             .apply(remove_non_alphanumeric)
             .apply(remove_numbers)
             .apply(remove_stop_words)
-            .apply(lemmatize_text)
     )
     return df
 
