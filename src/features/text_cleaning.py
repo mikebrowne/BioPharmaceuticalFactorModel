@@ -18,6 +18,7 @@ import re
 from langdetect import detect
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
+from nltk import word_tokenize, pos_tag
 
 from pandas import Series
 
@@ -79,6 +80,20 @@ def lemmatize_text(text):
     tokens = [lemmetizer.lemmatize(word) for word in tokens]
     tokens = [lemmetizer.lemmatize(word, pos="v") for word in tokens]
     return " ".join(tokens)
+
+
+def text_filter(texts, list_pos_to_keep):
+    def filter_pos_from_word_list(pos_list_, list_pos_to_keep_):
+        return [tuple_[0] for tuple_ in pos_list_ if tuple_[1] in list_pos_to_keep_]
+
+    merged_text = " ".join(texts.values.tolist())
+    pos_list = pos_tag(word_tokenize(merged_text))
+    word_list = filter_pos_from_word_list(pos_list, list_pos_to_keep)
+    return [word for word in word_list if len(word) >= 4]
+
+
+def filter_pos_from_text(text, set_valid_words):
+    return " ".join([word for word in word_tokenize(text) if word in set_valid_words])
 
 
 def clean_text(df, column_name):
