@@ -25,6 +25,10 @@ July 13, 2019
     1. See how large the data frame is, if it fits in GitHub it would be good to keep it as is and have a "best model"
     2. In Jupyter Notebooks, take a look at the various models and subjectively pick the best model.
     3. For the best model, determine a name for each topic and add that to the BioPharmaNewsApp program.
+* Major issue - Forecasting doesn't really work well with GenSim's TF-IDF, would have to create functionality
+  that works well with it. I've already sunk a lot of time into wrapping GenSim, but SciKit Learn also has all of
+  these functions. Will Create a 4th (and hopefully final for the MVP) version of the functionality using
+  Sci-Kit Learn instead.
 
 July 11, 2019
 -------------
