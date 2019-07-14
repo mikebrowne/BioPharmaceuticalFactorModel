@@ -114,7 +114,7 @@ class LDATopicModel:
         self.max_topics = max_topics
         self.n_passes = n_passes
         self.n_iterations = n_iterations
-        self.score = silhouette_score
+        self.score = calinski_harabasz_score
 
         # objects
         self.models = TopicModelHolder(self.score, ">")
@@ -199,7 +199,6 @@ if __name__ == "__main__":
     # file_1.py
     # -----------
     articles, watchlist = load()
-    articles = articles.sample(1000)
 
     print("Fitting Pre Processing...")
     p = PreProcessing()
@@ -214,16 +213,11 @@ if __name__ == "__main__":
     X = p.transform(articles, watchlist)
 
     print("Training LDA Model...")
-    model = LDATopicModel(max_topics=10)#, n_passes=30, n_iterations=50)
+    model = LDATopicModel(max_topics=20, n_passes=15, n_iterations=200)
     model.fit(X, tfidf_corpus)
 
     save_pickle(model, "lda_model")
     print("File size of {}: ".format("lda_model"), os.path.getsize(get_path("lda_model")))
-
-    # path = get_path("lda_model_save")
-    # temp_file = datapath(path)
-    # model.models.save(fname=temp_file)
-    # print("File size of {}: ".format("lda_model_save"), os.path.getsize(get_path("lda_model_save")))
 
     print("DONE file_1...\n\n")
 
