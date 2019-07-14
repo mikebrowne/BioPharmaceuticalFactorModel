@@ -54,7 +54,7 @@ class PreProcessing:
             self.dict_ = pickle.load(infile)
 
         with open(tfidf_fname, "rb") as infile:
-            self.tfidf = pickle.load(infile)
+            self.tfidf_ = pickle.load(infile)
 
     def transform(self, articles, watchlist):
         '''transforms the article into a TF-IDF vector for input into the LDATopicModel'''
