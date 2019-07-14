@@ -19,6 +19,12 @@ July 13, 2019
   model.
 * As I worked through the above solution, I realized that I could simply reduce the words in the model. Setting the
   in-frequent word threshold to be higher, the number of words reduced drastically (likely due to the Pareto dist.).
+* It appears that everything works the way it should now. However, the topic results are not up to my standard.
+  What I would like to do, is create a third version that doesn't delete the data frame of all tested models.
+  From here:
+    1. See how large the data frame is, if it fits in GitHub it would be good to keep it as is and have a "best model"
+    2. In Jupyter Notebooks, take a look at the various models and subjectively pick the best model.
+    3. For the best model, determine a name for each topic and add that to the BioPharmaNewsApp program.
 
 July 11, 2019
 -------------
