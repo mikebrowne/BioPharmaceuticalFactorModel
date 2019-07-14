@@ -1,0 +1,27 @@
+DESIGN DOC
+
+Topic Modelling
+
+This folder contains the code for LDA Topic Modelling.
+I wanted to create a custom wrapper for the pipeline to be used in future projects that makes
+handling the model much simpler.
+
+The initial design was to have the full pipeline in a single class. It needed a fit and a transform function.
+After training, the model was simply too large to push to GitHub. I would like to avoid using the large
+file system and I also want to keep the model small and agile.
+
+
+July 13, 2019
+-------------
+* After pondering about the problem, I think a decent solution would be to only use the top m words from
+  the topic probabilities and re-create the transform function to accomodate for this. This way,
+  it would not be necessary to keep the full LDA model and likely would only keep a small data set within the
+  model.
+* As I worked through the above solution, I realized that I could simply reduce the words in the model. Setting the
+  in-frequent word threshold to be higher, the number of words reduced drastically (likely due to the Pareto dist.).
+
+July 11, 2019
+-------------
+* Split lda_topic_model.py into two seperate classes and pushed those into lda_topic_model_v2.py
+* The model holder was still much too large, tried to only keep a single model.
+* Even a single model is too large.
