@@ -43,14 +43,18 @@ class PreProcessing:
         self.tfidf_ = tfidf_model
         return dict, tfidf_model, tfidf_corpus
 
-    def fit_from_pickle(self, pickle_list):
+    def fit_from_pickle(self, dict_fname, tfidf_fname):
         '''
         Re-fits the Pre-Processing for transforming data to work in the fitted LDATopicModel.
-        :param pickle_list: pickled GenSim objects
+        :param dict_fname: file location of the dictionary pickle
+        :param tfidf_fname: file location of the TF-IDF pickle
         :return: None
         '''
-        self.dict_ = open_pickle(pickle_list[0])
-        self.tfidf_ = open_pickle(pickle_list[1])
+        with open(dict_fname, "rb") as infile:
+            self.dict_ = pickle.load(infile)
+
+        with open(tfidf_fname, "rb") as infile:
+            self.tfidf = pickle.load(infile)
 
     def transform(self, articles, watchlist):
         '''transforms the article into a TF-IDF vector for input into the LDATopicModel'''
@@ -231,7 +235,7 @@ if __name__ == "__main__":
 
     print("Re-fitting Pre Processing...")
     new_p = PreProcessing()
-    new_p.fit_from_pickle(["lda_model_dict", "lda_model_tfidf_model"])
+    new_p.fit_from_pickle(get_path("lda_model_dict"), get_path("lda_model_tfidf_model"))
 
     model = open_pickle("lda_model")
 
