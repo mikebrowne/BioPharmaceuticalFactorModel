@@ -33,3 +33,29 @@ class TopicModelHolder:
 
 def get_best_labels(model, corp):
     return [np.array([tuple_[1] for tuple_ in model.get_document_topics(doc)]).argmax() for doc in corp]
+
+
+def sklearn_get_topic_terms(holder, model_n=3, num_words=5):
+    '''
+    Get's the top n terms for a topic model
+    :param holder: LDATopicModel object
+    :param model_n: Number of topics
+    :param num_words: Number of words for each topic
+    :return:
+    '''
+    # https://stackoverflow.com/questions/44208501/getting-topic-word-distribution-from-lda-in-scikit-learn
+    model = holder.models.model_df.loc[model_n].model
+
+    vocab = holder.count_vec.get_feature_names()
+
+    n_top_words = num_words
+
+    topic_words = {}
+
+    for topic, comp in enumerate(model.components_):
+        word_idx = np.argsort(comp)[::-1][:n_top_words]
+
+        # store the words most relevant to the topic
+        topic_words[topic] = [vocab[i] for i in word_idx]
+
+    return topic_words

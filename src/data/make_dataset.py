@@ -103,6 +103,19 @@ def clean_and_format_prices(prices_df, company_tickers):
     return prices_df
 
 
+def load_data():
+    # raw data import
+    _, watchlist_raw, stock_prices_raw = get_raw_data()
+    article_raw = clean_and_open_business_wire_data_01(None)
+
+    # Base data cleaning and formatting
+    articles = article_raw.copy()
+    articles.reset_index(inplace=True)
+    articles.time = pd.to_datetime(articles.time)
+
+    return articles, watchlist_raw.copy()
+
+
 def main():
     bus_wire_raw, _, _ = get_raw_data()
     temp_df = clean_and_open_business_wire_data_01(bus_wire_raw, to_save=True)

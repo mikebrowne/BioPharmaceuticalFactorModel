@@ -12,7 +12,7 @@ from sklearn.metrics import *
 import pandas as pd
 
 # NLP Libraries
-from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
 from sklearn.decomposition import LatentDirichletAllocation as LDA
 
 # Local Package Libraries
@@ -39,15 +39,17 @@ class LDATopicModel:
 
     def fit(self, articles_, watchlist_):
         articles_cleaned = self._clean_text(articles_, watchlist_)
+        self._fit_count_vec(articles_cleaned)
         tfidf_data = self._fit_tfidf(articles_cleaned)
         self._fit_models(tfidf_data)
 
     def get_topic(self, articles_, watchlist_, n_topic=3):
+        return [np.argmax(x) for x in self.get_document_topic_probabilities(articles_, watchlist_, n_topic=3)]
+
+    def get_document_topic_probabilities(self, articles_, watchlist_, n_topic=3):
         articles_cleaned = self._clean_text(articles_, watchlist_)
         tfidf_data = self.tfidf_model.transform(articles_cleaned)
-        label_probabilities = self.models.model_df.loc[n_topic].model.transform(tfidf_data)
-
-        return [np.argmax(x) for x in label_probabilities]
+        return self.models.model_df.loc[n_topic].model.transform(tfidf_data)
 
     # PRIVATE FUNCTIONS
     # -----------------
@@ -74,9 +76,13 @@ class LDATopicModel:
 
         return text.values
 
+    def _fit_count_vec(self, cleaned_articles_):
+        self.count_vec = CountVectorizer(min_df=0.01, max_df=0.4)
+        self.count_vec.fit(cleaned_articles_)
+
     def _fit_tfidf(self, cleaned_articles_):
 
-        self.tfidf_model = TfidfVectorizer(min_df=0.01, max_df=0.4)
+        self.tfidf_model = TfidfVectorizer(**self.count_vec.get_params())
 
         return self.tfidf_model.fit_transform(cleaned_articles_)
 

@@ -11,6 +11,16 @@ After training, the model was simply too large to push to GitHub. I would like t
 file system and I also want to keep the model small and agile.
 
 
+July 15, 2019
+-------------
+* After having some issues with unpickling the model in other programs, I have decided to add the import into the
+  pickle file.
+
+July 14, 2019
+-------------
+* Finished building and testing the SciKit Learn version of the LDA model.
+* Exported the model as lda_model_sklearn
+
 July 13, 2019
 -------------
 * After pondering about the problem, I think a decent solution would be to only use the top m words from
